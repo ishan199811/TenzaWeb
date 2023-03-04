@@ -1,0 +1,84 @@
+<html  lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+ 
+<meta charset="ISO-8859-1">
+<title>Your Orders</title>
+
+
+</head>
+
+ <head th:insert="fragment/head">
+</head>
+
+        
+           
+            <!--header area end-->
+ 
+<body>
+<header th:insert="fragment/header">
+ </header>
+<br>
+    <div align="center">
+    <table border="10" cellpadding="25">
+        <thead>
+            <tr>
+       
+									
+										<th>order Id </th>
+										<th>Order Price</th>
+										<th>Order Date</th>
+										
+										 
+										 
+										<th>Address</th>
+										
+										
+										<th>productItems</th>
+									
+									
+								      
+								     
+					
+					
+					
+									
+								
+								
+	<tbody>
+		<tr th:each="order: ${order}">
+	
+										<td th:text="${order.orderId}"></td>
+										<td th:text="${order.totalPrice}"></td>
+										<td th:text="${order.createdDate}"></td>
+										
+										
+										
+											
+											<td><p  th:text="${order.addressId.state}"></p></td>
+											<td><a th:href="@{/proorder(orderId = ${order .orderId}) }"  >see products</a></td>
+										
+										
+									</tr>
+								
+									</tbody>
+									</tr>
+									</thead>
+    </table>	
+									
+									
+										
+										
+										
+	
+								
+							
+						
+</div>
+
+                
+
+</body>
+<footer class="footer_widgets color_six" th:insert="fragment/footer"></footer>
+
+</body>
+</html>

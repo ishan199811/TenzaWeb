@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+            <!--header area start-->
+
+   
+
+<!--  <span sec:authentication="principal.authorities">Roles</span>  -->
+
+
+
+
+ <!-- <form id="logoutForm" method="POST" th:action="@{/logout}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form> --> 
+     
+            <div class="off_canvars_overlay">
+            </div>
+            <div class="offcanvas_menu offcanvas6">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="canvas_open">
+                                <a href="javascript:void(0)"><i class="icon-menu"></i></a>
+                            </div>
+                            <div class="offcanvas_menu_wrapper">
+                                <div class="canvas_close">
+                                    <a href="javascript:void(0)"><i class="icon-x"></i></a>
+                                </div>
+                                
+
+                                <div class="header_social text-right">
+                                    <ul>
+                                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                                        <li><a href="#"><i class="ion-social-googleplus-outline"></i></a></li>
+                                        <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                        <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="search_container offcanvas__search">
+                                    <form th:action="@{/search}">
+                                                                              <div class="search_box">
+                                            <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" placeholder="Search.." />
+    &nbsp;
+                                            <button type="submit" ><span class="lnr lnr-magnifier"></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="call-support">
+                                    <p><a href="tel:345345345  "> 345345345 </a>Customer Support</p>
+                                </div>
+                                <div id="menu" class="text-left ">
+                                    <ul class="offcanvas_main_menu">
+                                    <li class="menu-item-has-children"><span class="menu-expand"><i class="fa fa-angle-down"></i></span>
+                                    <a href="#">My Profile</a>
+                                    <ul class="sub-menu">
+                                      
+                                        <li><a  sec:authorize="isAuthenticated()"> Role</a></li>
+                                        <li><a  sec:authentication="name"> Username</a></li> 
+                                       
+                                    </ul>
+
+                                </li>
+                                        <li><a href="Default.html">Home</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"><i class="fa fa-angle-down"></i></span>
+                                    <a href="#">About Us</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html"> About Us</a></li>
+                                        <li><a href="legal.html"> Legal</a></li>
+                                        <li><a href="franchise.html"> Franchise</a></li>
+                                    </ul>
+
+                                </li>
+                                        <li><a href="business-plan.html">Opportunity</a></li>
+                                        <li><a href="products.html">Products</a></li>
+                                        <li><a href="gallery.html">Photo Gallery</a></li>
+                                        <li class="menu-item-has-children"><span class="menu-expand"><i class="fa fa-angle-down"></i></span>
+                                    <a href="#">Achievers</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="top-leaders.html">Kufri Achievers</a></li>
+                                        <!-- <li><a href="rank-achievers.html"> Rank Achievers</a></li>
+                                        <li><a href="bonanza-achievers.html"> Bonanza Achievers</a></li>
+                                        <li><a href="trip-achievers.html"> Trip Achievers</a></li> -->
+                                    </ul>
+
+                                </li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="payment.html">Payment</a></li>
+                                   <div sec:authorize="hasAuthority('USER')">
+                                     <li><a href="logout">logout</a></li>
+                                       </div> 
+                                    </ul>
+
+
+                                </div>
+                                <div class="offcanvas_footer">
+                                    <span><a href="mailto:support@mytenza.com"><i class="fa fa-envelope-o"></i> support@mytenza.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--offcanvas mobile menu area end-->
+
+            
+                <div class="main_header container_width color_six p-0">
+                    <div class="mobile-login">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-sm-12">
+                                    <ul>
+                                        <li><a href="/register"><i class="fa fa-pencil"></i> Register</a></li>
+                                        <li><span>/</span></li>
+                                        <li><a href="/loginpage"><i class="fa fa-lock"></i> Login</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_top header_top_bg">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6">
+                                    
+                                    <div class="header-top">
+                                        <ul>
+                                            <li><a href="tel: 3214234  " title="Phone No."><i class="fa fa-phone"></i> +91-  3214234  </a></li>
+                                            <li>
+                                                <a href="mailto:support@company.com" title="E-mail"><i class="fa fa-envelope-o"></i> support@company.com</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="header_social text-right">
+                                        <ul>
+                                            <li><a href="#" title="Twitter"><i class="ion-social-twitter"></i></a></li>
+                                            <li><a href="#" title="Google Plus"><i class="ion-social-googleplus-outline"></i></a></li>
+                                            <li><a href="#" title="Youtube"><i class="ion-social-youtube-outline"></i></a></li>
+                                            <li><a href="#" title="Facebook"><i class="ion-social-facebook"></i></a></li>
+                                            <li><a href="#" title="Instagram"><i class="ion-social-instagram-outline"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_middle header_middle6 border-bottom">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-3">
+                                    <div class="logo">
+                                        <a href="Default.html">
+                                            <img src="website/img/logo/fav.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-md-6 col-sm-7 col-8">
+                                    <div class="header_right_info" title="Search product">
+                                        <div class="search_container mobail_s_none">
+                                            
+                                                                                                <div class="search_box">
+                                            <form th:action="@{/searchs}">
+                                                    <input placeholder="Search product..." type="text" name="keyword" id="keyword" size="50" th:value="${keyword}">
+                                                    <button type="submit" value="Clear" class="lnr lnr-magnifier" id="btnClear" onclick="clearSearch()" /></button>
+                                            </form>
+                                                </div>
+                                            
+                                       </div>
+                                        <div class="header_account_area">
+                                            
+                                            
+
+                                            
+                                            <div class="header_account_list  mini_cart_wrapper">
+                                                <a href="javascript:void(0)" title="Cart">
+                                                    <span class="lnr"><i class="lnr lnr-cart"></i> | Rs.00</span>
+                                                    <span class="item_count">2</span></a>
+                                                <!--mini cart-->
+                                                <div class="mini_cart">
+                                                    <div class="cart_gallery">
+                                                        <div class="cart_close">
+                                                            <div class="cart_text">
+                                                                <h3>cart</h3>
+                                                            </div>
+                                                            <div class="mini_cart_close">
+                                                                <a href="javascript:void(0)"><i class="icon-x"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cart_item" th:each="cartItems: ${cartItems}">
+                                                            <div class="cart_img">
+                                                                <a href="#">
+                                                                    <img th:src="${cartItems.product.imageUrl}" class="img-fluid img-thumbnail" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="cart_info">
+                                                                <a th:href="@{/product-details.html(productId = ${cartItems.product.productId}) }" th:text="${cartItems.product.productName}">Amrat Noni Juice </a>
+                                                                <ul>
+                                                                    <li>Rs. <strong th:text="${cartItems.product.productPrice}"></strong></li>
+                                                                    <li>Qnty. <strong th:text="${cartItems.productQuatity}">4</strong></li>
+                                                                    <li>Total. <strong th:text="${cartItems.total}">000</strong></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="cart_remove">
+                                                                <a href="#"><i class="icon-x"></i></a>
+                                                            </div>
+                                                        </div>
+                                                                                                            </div>
+                                                    <div class="mini_cart_table">
+                                                        <div class="cart_table_border">
+                                                            <div class="cart_total">
+                                                                <span>Sub Total:</span>
+                                                               <p>Rs</p> <span class="price" th:text="${totalCost}" th:if="${totalCost}">₹00.00</span>
+                                                            </div>
+                                                            <div class="cart_total">
+                                                                <span>Discount:</span>
+                                                                <span class="price">₹00.00</span>
+                                                            </div>
+                                                            <div class="cart_total mt-10">
+                                                                <span>Total:</span>
+                                                                <span class="price">₹00.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini_cart_footer">
+                                                        <div class="cart_button">
+                                                            <a href="cart.html"><i class="fa fa-shopping-cart"></i>View cart</a>
+                                                        </div>
+                                                        <div class="cart_button">
+                                                            <a href="checkout.html"><i class="fa fa-sign-in"></i>Checkout</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <!--mini cart end-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_bottom sticky-header">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12">
+                                    <!--main menu start-->
+                                    <div class="main_menu menu_position">
+                                        <nav>
+                                            <ul class="justify-content-center">
+                                                <li><a href="Default.html"><i class="fa fa-home"></i> Home</a></li>
+                                                <li><a href="#"><i class="fa fa-user"></i> About Us</a>
+                                                    <ul class="sub_menu pages">
+                                                        <li><a href="about.html"><i class="fa fa-user"></i> About Us</a></li>
+                                                        <li><a href="legal.html"><i class="fa fa-file"></i> Legal</a></li>
+                                                        <li><a href="franchise.html"><i class="fa fa-sitemap"></i> Franchise</a></li>
+
+                                                    </ul>
+                                                </li>
+                                                <li><a href="business-plan.html"><i class="fa fa-briefcase"></i> Opportunity</a></li>
+                                                <li><a href="products.html"><i class="fa fa-briefcase"></i> Products</a></li>
+                                                <li><a href="gallery.html"><i class="fa fa-image"></i> Photo Gallery</a></li>
+                                                <li><a href="#"><i class="fa fa-trophy"></i> Achievers</a>
+                                                    <ul class="sub_menu pages">
+                                                        <li><a href="top-leaders.html"><i class="fa fa-trophy"></i> Top Leaders</a></li>
+                                                        <li><a href="rank-achievers.html"><i class="fa fa-trophy"></i> Rank Achievers</a></li>
+                                                        <li><a href="bonanza-achievers.html"><i class="fa fa-trophy"></i> Bonanza Achievers</a></li>
+                                                        <li><a href="trip-achievers.html"><i class="fa fa-trophy"></i> Trip Achievers</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="contact.html"><i class="fa fa-fax"></i> Contact Us</a></li>
+                                                <li><a href="payment.html"><i class="fa fa-bank"></i> Payment</a></li>
+                                                
+                                                <li><a href="/loginpage"><span><i class="fa fa-lock"></i> Login</span></a></li>
+                                                <li><a href="/register"><span><i class="fa fa-pencil"></i> Register</span></a></li>
+                                                
+                                                <li><a href="#"><i class="fa fa-user"></i> My Profile</a>
+                                                    <ul class="sub_menu pages">
+                                                    
+                                       <div sec:authorize="hasAuthority('USER')">
+                                   
+                                   <li><div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+      <i><span sec:authentication="principal.fullName">Full Name</span></i>
+    
+    
+    
+    
+</div>
+</li>
+                                     <a    th:href="@{/getorder}" class="fa fa-bank">My Orders</a></li>
+
+
+
+
+<div sec:authorize="hasAuthority('USER')"><div sec:authorize="hasAuthority('USER')">
+   
+                                       <li><a href="logout"><i class="fa fa-sitemap"></i>logout</a></li></div></div>
+</div>
+                                              </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <!--main menu end-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+              
+</html>

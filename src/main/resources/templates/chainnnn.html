@@ -1,0 +1,94 @@
+<html>
+
+<head>
+	<title>title</title>
+
+</head>
+<style>
+.indicator{
+  position:relative;
+  padding-bottom:25px;
+}
+.indicator:before, .indicator:after{
+  content:'';
+  position:absolute;
+  background:#f00;
+  height:3px;
+  width:20%;
+  bottom:-20%;
+}
+.indicator:before{
+  left:30.75%;
+  transform:rotate(-20deg);
+}
+.indicator:after{
+  right:30.75%;
+  transform:rotate(20deg);
+}
+tr:first-child .indicator:before, tr:first-child .indicator:after{
+  bottom:-30%;
+}
+tr:first-child .indicator:before{
+  left:30.4%;
+  transform:rotate(-15deg);
+}
+tr:first-child .indicator:after{
+  right:30.4%;
+  transform:rotate(15deg);
+}
+tr:last-child .indicator{
+  padding:0;
+}
+tr:last-child .indicator:before, tr:last-child .indicator:after{
+  display:none;
+}
+</style>
+<body>
+  <div th:each="node: ${node}">
+	<table border="0" width="100%" align="center" style="border-collapse: collapse" >
+  <tbody>
+    <tr>
+      <td valign="top" height="45" colspan="8" align="center">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled-128x128.png"><br>
+        <p class="indicator" th:text="${node.pid}">BG00000000<br>User Name</p>
+         <td valign="top" align="center" width="400" height="45" colspan="4">
+     
+          <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled-128x128.png"><br>
+       <p class="indicator" th:text="${node.nodeId}">BG00000000<br>User Name</p>
+      </td>
+        </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" width="400" height="45" colspan="4">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled-128x128.png"><br>
+        <p class="indicator" th:text="${node.nodeId}">BG00000000<br>User Name</p>
+      </td>
+      <td valign="top" width="400" align="center" height="45" colspan="4">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-girl-outline-filled-128x128.png"><br>
+        <p class="indicator" >BG00000000<br>User Name</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" width="200" height="40" colspan="2">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled-128x128.png"><br>
+        <p class="indicator">BG00000000<br>User Name</p>
+      </td>
+      <td valign="top" width="200" align="center" height="40" colspan="2">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-128x128.png"><br>
+        <p class="indicator">OPEN</p>
+      </td>
+      <td valign="top" width="200" align="center" height="40" colspan="2">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-128x128.png"><br>
+        <p class="indicator">OPEN</p>
+      </td>
+      <td valign="top" width="200" height="40" align="center" colspan="2">
+        <img border="0" src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled-128x128.png"><br>
+        <p class="indicator">BG00000000<br>User Name</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+
+</html>

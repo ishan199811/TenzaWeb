@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <title>CodePen - bootstrap sidebar</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        
+            <!-- <link rel="stylesheet" href="./static/css/addemployee.css"> -->
+            <link rel="stylesheet" href="./static/css/salarystaus.css">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+     </head>
+     <style>
+          .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom:0px;
+}
+.form-control {
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.mg {
+    margin-bottom: 20px;
+}
+     </style>
+     <body>
+          <!-- partial:index.partial.html -->
+          <nav class="mnb navbar navbar-default navbar-fixed-top">
+
+               <div class="container-fluid">
+                    <div class="navbar-header">
+                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                              <span class="sr-only">Toggle navigation</span>
+                              <i class="ic fa fa-bars"></i>
+                         </button>
+                         <div style="padding: 15px 0">
+                              <a href="#" id="msbo"><i class="ic fa fa-bars"></i></a>
+                         </div>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                         <ul class="nav navbar-nav navbar-right">
+                              <li class="dropdown">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Zone<span class="caret"></span></a>
+                                   <ul class="dropdown-menu">
+                                        <li><a href="#"> <input class="form-control"  type="text"
+                                             name="form"
+                                             placeholder="Search"
+                                              /></a></li>
+                                        <li><a href="#">Upgrade</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Logout</a></li>
+                                   </ul>
+                              </li>
+                         </ul>
+                    </div>
+                   <div class="product-detail">
+                        <div class="title">
+                             <h1>Salary status</h1>
+                        </div>
+                        <form>
+                                  <div class="category-block mg">
+                                      <label for="paid89" class="font">Paid</label>
+                                      <input type="text"
+                                       class="form-control"
+                                        id="paid321"
+                                         placeholder="paid"/>
+                                  </div>
+                                  <div class="product-code-block mg">
+                                    <label for="pending__sa"class="font">Pending</label>
+                                    <input type="text"
+                                    class="form-control"
+                                    id="pending90"
+                                    placeholder="pending"
+                                    >
+                                </div>
+                                <div class="product-code-block mg">
+                                    <label for="ammount__sa"class="font">Ammount</label>
+                                    <input type="text"
+                                    class="form-control"
+                                    id="ammount65"
+                                    placeholder="ammount"
+                                    >
+                                </div>
+                                <div class="product-code-block mg">
+                                    <label for="date__sa"class="font">Date</label>
+                                    <input type="date"
+                                    class="form-control"
+                                    id="date54"
+                                    placeholder="date"
+                                    >
+                                </div>
+                                  <div class="buttonns">
+                                      <a href="#" class="save-button">Save</a>
+                                  </div>
+                        </form>
+                     
+                   </div>
+                   <div class="table___c">
+                    <form >
+                     <table class="table">
+                          <thead>
+                            <tr>
+                             
+                             <th>Paid</th>
+                             <th>Pending</th>
+                             <th>Ammount</th>
+                             <th>Date</th>
+                              <th>Edit </th>
+                              <th>Save </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                           
+                              <td><button type="button" class="btn btn-success">Edit</button></td>
+                              <td><button type="button" class="btn btn-primary">Save</button></td>
+                            </tr>
+                        
+                          
+                          </tbody>
+                        </table>
+                    </form>
+             
+               </div>
+               </div>
+          </nav>
+          <!--msb: main sidebar-->
+          <div class="msb" id="msb">
+               <nav class="navbar navbar-default" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                         <div class="brand-wrapper">
+                              <!-- Brand -->
+                              <div class="brand-name-wrapper">
+                                   <a class="navbar-brand" href="#"> Admin panel </a>
+                              </div>
+                         </div>
+                    </div>
+
+                    <!-- Main Menu -->
+                    <div class="side-menu-container">
+                         <ul class="nav navbar-nav">
+                              <li>
+                                   <a href="#"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
+                              </li>
+                             
+
+                              <!-- Dropdown-->
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl1">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i> Admin Zone
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="#">Account Detail</a></li>
+                                                  <li><a href="#">Change Password</a></li>
+                                                  <li><a href="#">Register Bulk</a></li>
+                                                  <li><a href="#">Admin Bnak Detail</a></li>
+                                                  <li><a href="#">Deduction Setting</a></li>
+                                                  <li><a href="#">Add Terms and Condition</a></li>
+                                                  <li><a href="#">Company Information</a></li>
+                                                  <li><a href="#">SMS/mail Setting</a></li>
+                                                  <li><a href="#">Company Bank Detail</a></li>
+                                                  <li><a href="#">Invoice Setting</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl12">
+                                        <i class="fa fa-users" aria-hidden="true"></i> Member Zone
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl12" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="./memberlist.html">Member List</a></li>
+                                                  <li><a href="./blockmemberlist.html">Block Member List</a></li>
+                                                  <li><a href="./activemember.html">Active Member</a></li>
+                                                  <li><a href="./memberbank-list.html">Member Bank List</a></li>
+                                                  <li><a href="./memberKYC.html">Member Kyc/Bank</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl13">
+                                        <i class="fa fa-users" aria-hidden="true"></i>Offers and Discount
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl13" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="./offertype.html">Offers Type</a></li>
+                                                  <li><a href="./discount.html">Discount on product</a></li>
+                                                  
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl14">
+                                        <i class="fa fa-users" aria-hidden="true"></i>Genrelogy zone
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl14" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="#">Member Donline</a></li>
+                                                  <li><a href="#">Level Repost</a></li>
+                                                  <li><a href="#">Referal Level Repost</a></li>
+                                                  <li><a href="#">Tree Views</a></li>
+                                                  <li><a href="#">Direct List</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl15">
+                                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Fund Management
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl15" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="#">Fund Add By Admin</a></li>
+                                                  <li><a href="#">Pending Fund</a></li>
+                                                  <li><a href="#">Approved Fund</a></li>
+                                                  <li><a href="#">Reject Fund</a></li>
+                                                  <li><a href="#">Fund History</a></li>
+                                                  <li><a href="#">Fund By Admin History</a></li>
+                                                  <li><a href="#">Fund Transfer History</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                           
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl17">
+                                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Paymnet Management
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl17" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="#">Process Payout</a></li>
+                                                  <li><a href="#">Pending Payout</a></li>
+                                                  <li><a href="#">Pid Payout</a></li>
+                                                  <li><a href="#">Monthly Tds Report</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl18">
+                                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>Prodcut Management
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl18" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="./addproduct.html">Add product</a></li>
+                                                  <li><a href="./add category.html">Add Category</a></li>
+                                                  <li><a href="./add-sub category.html">Add sub Category</a></li>
+                                                  <li><a href="./add brand.html">Add Brand</a></li>
+                                                  <li><a href="./add specification.html">Add specification</a></li>
+                                                  <li><a href="./addsize-color-unit.html">Add size color and unit</a></li>
+                                                  <li><a href="./tax-field.html">tax field</a></li>
+                                                  <li><a href="./add deliverycharge.html">Add delivery charges</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl19">
+                                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Order Management
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl19" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="all_order_list.html">All Order List</a></li>
+                                                  <li><a href="cancel_order.html">Cancel Order List</a></li>
+                                                  <li><a href="pending-order.html">Pending Orders</a></li>
+                                                  <li><a href="dispatched-order.html">Dispacthed Order</a></li>
+                                                  <li><a href="deliverd-order.html">Delivered Order List</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl120">
+                                        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>Income Report
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl120" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="#">Sales Bonus</a></li>
+                                                  <li><a href="#">Perfomance Bonus</a></li>
+                                                  <li><a href="#">Repurchase Bonus</a></li>
+                                                  <li><a href="#">Partnership Bonus</a></li>
+                                                  <li><a href="#">Referal Level Bonus</a></li>
+                                                  <li><a href="#">Turnover Repost</a></li>
+                                                  <li><a href="#">Income History</a></li>
+                                                  <li><a href="#">Monthly Business Report</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl121">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>Employe Management
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl121" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="./addemployee.html">Add Employee</a></li>
+                                                  <li><a href="./employeelist.html">Employee List</a></li>
+                                                  <li><a href="./employee_designation.html">Employee designation</a></li>
+                                                  <li><a href="./salarysatus.html">Salary status</a></li>
+                                                  <li><a href="./degreerecord.html">Degree record</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl122">
+                                        <i class="fa fa-globe" aria-hidden="true"></i> Vendor Management
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl122" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="./addvendor.html">Add Vendor</a></li>
+                                                  <li><a href="./vendorlist.html">Vendor List</a></li>
+                                                  <li><a href="./vaendor_product-category.html">Vendor product category</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl123">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>Purchase
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl123" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="./purchaseorder.html">Purchase Order</a></li>
+                                                  <li><a href="./orderlist.html">Purchase Order List</a></li>
+                                                  <li> <a href="searchbar.html">Purchase search bar</a></li>
+
+                                                  <!-- Dropdown level 2 -->
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                              </li>
+                              <li class="panel panel-default" id="dropdown">
+                                   <a data-toggle="collapse" href="#dropdown-lvl124">
+                                       <i class="fa fa-globe" aria-hidden="true"></i> Sales
+                                        <!-- <span class="caret"></span> -->
+                                   </a>
+                                   <!-- Dropdown level 1 -->
+                                   <div id="dropdown-lvl124" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                  <li><a href="#">Add Invoice</a></li>
+                                                  <li><a href="#">inVoice List</a></li>
+                                                  <li><a href="#">Cnceled Order List</a></li>
+                                                 
+                                             </ul>
+                                        </div>
+                                   </div>
+                              </li>
+                             
+                             
+                         </ul>
+                    </div>
+               </nav>
+          </div>
+          <div class="mcw">
+          </div>
+          <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script src="./static/js/script.js"></script>
+     </body>
+</html>

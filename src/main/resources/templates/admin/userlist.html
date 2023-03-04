@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"> 
+     <head>
+          <meta charset="UTF-8" />
+          <title>CodePen - bootstrap sidebar</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        
+            <!-- <link rel="stylesheet" href="./static/css/addemployee.css"> -->
+            <link rel="stylesheet" href="./css/employeelist.css">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+     </head>
+     <style>
+          .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom:0px;
+}
+.form-control {
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.mg {
+    margin-bottom: 20px;
+}
+     </style>
+     <body>
+          <!-- partial:index.partial.html -->
+         <head th:insert="fragment/ahead"></head>                   <div class="product-detail">
+                        <div class="title">
+                             <h1> Add Employee list</h1>
+                        </div>
+                        <form>
+                                  <div class="category-block mg">
+                                      <label for="employee__name" class="font">Employee name</label>
+                                      <input type="text"
+                                       class="form-control"
+                                        id="employeename65"
+                                         placeholder="employee name"/>
+                                  </div>
+                                  <div class="product-code-block mg">
+                                    <label for="employee__designation"class="font">Employee designation</label>
+                                    <input type="text"
+                                    class="form-control"
+                                    id="designation75"
+                                    placeholder="employee designation"
+                                    >
+                                </div>
+                                  <div class="buttonns">
+                                      <a href="#" class="save-button">Save</a>
+                                  </div>
+                        </form>
+                     
+                   </div>
+                   <div class="table___c">
+                    <form >
+                     <table class="table">
+                          <thead>
+                             <tr>
+            <th>User ID</th>
+            <th>E-mail</th>
+            <th>Full Name</th>
+           <th>Confirm Password</th> 
+            <th>Roles</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user: ${listUsers}">
+            <td th:text="${user.userId}">User ID</td>
+            <td th:text="${user.email}">E-mail</td>
+            <td th:text="${user.fullName}">First Name</td>
+            <td th:text="${user.confirmPassword}">First Name</td>
+            
+            <td th:text="${user.roles}">Roles</td>
+           
+            <td><a th:href="@{/users/edit/{id}(id=${user.userId})}" class="btn btn-success">Edit</a></td>
+        </tr>
+                        
+                        
+                        </table>
+                    </form>
+             
+               </div>
+               </div>
+          </nav>
+          <!--msb: main sidebar-->
+         <head th:insert="fragment/adminpannel"></head>      </body>
+</html>

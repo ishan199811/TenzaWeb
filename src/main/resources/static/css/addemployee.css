@@ -1,0 +1,345 @@
+body {
+    /* margin-top: 50px; */
+    background-color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: #39464e;
+  }
+  
+  .navbar-default {
+    background-color: #FFF;
+    margin-left: 200px;
+  }
+  
+  /*main side bar*/
+  .msb {
+    width: 200px;
+    background-color: #F5F7F9;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    white-space: nowrap;
+    height: 100%;
+    z-index: 1;
+    border-right: 1px solid #ddd;
+  }
+  .msb .navbar {
+    border: none;
+    margin-left: 0;
+    background-color: inherit;
+  }
+  .msb .navbar-header {
+    width: 100%;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+  .msb .navbar-nav .panel {
+    border: 0 none;
+    box-shadow: none;
+    margin: 0;
+    background: inherit;
+  }
+  .msb .navbar-nav li {
+    display: block;
+    width: 100%;
+  }
+  .msb .navbar-nav li a {
+    padding: 15px;
+    color: #5f5f5f;
+  }
+  .msb .navbar-nav li a .glyphicon, .msb .navbar-nav li a .fa {
+    margin-right: 8px;
+  }
+  .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom: 1px solid #8080801f;
+  }
+  .msb .nb {
+    padding-top: 5px;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  
+  ul.nv,
+  ul.ns {
+    position: relative;
+    padding: 0;
+    list-style: none;
+  }
+  .navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+   border: 0;
+  }
+  nv {
+    /*ns: nav-sub*/
+  }
+  .nv li {
+    display: block;
+    position: relative;
+  }
+  .nv li::before {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .nv li a {
+    color: #444;
+    padding: 10px 25px;
+    display: block;
+    vertical-align: middle;
+  }
+  .nv li a .ic {
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: 300;
+    display: inline-block;
+  }
+  .nv .ns li a {
+    padding: 10px 50px;
+  }
+  
+  /*main content wrapper*/
+  .mcw {
+    margin-left: 200px;
+    position: relative;
+    min-height: 100%;
+    /*content view*/
+  }
+  /*globals*/
+  a,
+  a:focus,
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .inbox .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .inbox ul, .inbox li {
+    margin: 0;
+    padding: 0;
+  }
+  .inbox ul li {
+    list-style: none;
+  }
+  .inbox ul li a {
+    display: block;
+    padding: 10px 20px;
+  }
+  
+  .msb, .mnb {
+    -moz-animation: slidein 300ms forwards;
+    -o-animation: slidein 300ms forwards;
+    -webkit-animation: slidein 300ms forwards;
+    animation: slidein 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  
+  .mcw {
+    -moz-animation: bodyslidein 300ms forwards;
+    -o-animation: bodyslidein 300ms forwards;
+    -webkit-animation: bodyslidein 300ms forwards;
+    animation: bodyslidein 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  
+  body.msb-x .mcw, body.msb-x .mnb {
+    margin-left: 0;
+    -moz-animation: bodyslideout 300ms forwards;
+    -o-animation: bodyslideout 300ms forwards;
+    -webkit-animation: bodyslideout 300ms forwards;
+    animation: bodyslideout 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  body.msb-x .msb {
+    -moz-animation: slideout 300ms forwards;
+    -o-animation: slideout 300ms forwards;
+    -webkit-animation: slideout 300ms forwards;
+    animation: slideout 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  div#navbar {
+    border-bottom: 1px solid #80808063;
+}
+a#msbo {
+  position: relative;
+}
+  /* Slide in animation */
+  @-moz-keyframes slidein {
+    0% {
+      left: -200px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @-webkit-keyframes slidein {
+    0% {
+      left: -200px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes slidein {
+    0% {
+      left: -200px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @-moz-keyframes slideout {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -200px;
+    }
+  }
+  @-webkit-keyframes slideout {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -200px;
+    }
+  }
+  @keyframes slideout {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -200px;
+    }
+  }
+  @-moz-keyframes bodyslidein {
+    0% {
+      left: 0;
+    }
+    100% {
+      margin-left: 200px;
+    }
+  }
+  @-webkit-keyframes bodyslidein {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes bodyslidein {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: 200px;
+    }
+  }
+  @-moz-keyframes bodyslideout {
+    0% {
+      margin-left: 200px;
+    }
+    100% {
+      margin-right: 0;
+    }
+  }
+  @-webkit-keyframes bodyslideout {
+    0% {
+      margin-left: 200px;
+    }
+    100% {
+      margin-left: 0;
+    }
+  }
+  @keyframes bodyslideout {
+    0% {
+      margin-left: 200px;
+    }
+    100% {
+      margin-left: 0;
+    }
+  }
+  .products{
+    align-items: center;
+    display: flex;
+    margin: 40px 0px 0px 0px;
+}
+.container-content {
+    height: 100vh;
+    background: #f5f7f9;
+}
+.container-content h1{
+     margin: 0;
+}
+.container-content {
+    height: 100vh;
+    background: #f5f7f9;
+    padding: 50px 30px;
+}
+textarea.form-control {
+    height: 100px;
+}
+
+.button {
+    float: right;
+    margin-right: 227px;
+    margin-top: 20px;
+}
+
+.save-btn {
+    background: #03a9f4;
+    color: white;
+    font-size: 21px;
+    padding: 5px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.save-btn:hover {
+    background: #03a8f4d8;
+    color: white;
+    font-size: 21px;
+    padding: 5px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+}  
+a.save-button {
+  background: #0a6763;
+  color: white;
+  padding: 8px 19px;
+  font-size: 17px;
+  border-radius: 3px;
+  margin-left: 43%;
+}
+.cs {
+    display: flex;
+    gap: 6px;
+}
+.input#mobileno21{
+    width: 45%;
+}
+.btn__block{
+    background-color: orange;
+    color: white;
+    font-weight: 700;
+    border: 1px solid orange;
+    border-radius: 3px;
+    padding: 5px 10px;
+}

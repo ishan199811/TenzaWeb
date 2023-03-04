@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<body>
+        
+            </header>
+        
+            <!--header area end-->
+
+
+<a th:insert="fragment/allinquiryy"></a>
+
+<div align="center">
+<h1 > Add New Brand</h1>
+<form th:action="@{/saveSubcatagory}" th:object="${subCat}" enctype="multipart/form-data" method="POST">
+   
+   
+   
+   
+    	<div class="form-group row">
+				
+				<div class="col-8" align="center">
+				<p>Subcatagory Name:</p>
+				<div align="center">
+					<input type="text" th:field="*{subCatagoryName}"  placeholder="Subcatagory Name">
+					</div>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+					</div>
+					
+				<input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+					
+			
+</form>
+ 
+</div> 
+ 
+ 
+ 
+ 
+ 
+<br>
+    <div align="center">
+    <table border="10" cellpadding="25">
+        <thead>
+            <tr>
+       <th>Id</th>
+									
+										<th>SubcatagoryName </th>
+									
+									
+								      
+								     
+					
+					<th>Action</th>
+					
+									
+								
+								
+	<tbody>
+		<tr th:each="subCata: ${subCata}">
+		<td th:text="${subCata.subCatagoryId}"></td>
+										<td th:text="${subCata.subCatagoryName}"></td>
+										
+										
+										
+										<td><a th:href="@{/ed/{id}(id=${subCata.subCatagoryId})}" class="button">Edit</a>
+										<a th:href="@{/de/{id}(id=${subCata.subCatagoryId})}" class="button">Delete</a></td>
+										
+										
+										
+										
+										
+										
+												
+
+									
+									</tr>
+								</tbody>
+							</table>
+						
+</div>
+
+                
+
+</body>
+<footer class="footer_widgets color_six" th:insert="fragment/footer"></footer>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<div align="center">
+	<h1>Settings</h1>
+<div class="alert alert-primary" role="alert" th:text="${email}" th:if="${email}"></div>
+	
+		<form action="#" th:object="${dto}" th:action="@{/forgestpasswordotp}" method="post">
+
+			<!--  <input type="text" th:field="*{email}" >  
+			  <input type="text" th:field="*{otp}" name="otp">  -->
+			  
+
+
+			<input type="text" th:field="*{email}" placeholder="Enter Email"> 
+		
+			
+			 
+			 
+
+			  <input type="Submit" value="send otp">
+			   <a href="/resendotp" class="reg-btn text-decor btn-decor" >Re-Send</a>
+			 
+		
+		</form>
+		
+
+</body>
+</html>

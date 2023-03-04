@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<body>
+        
+      
+        
+            <!--header area end-->
+
+
+<a th:insert="fragment/allinquiryy"></a>
+
+ <a th:insert="admin/userInfo"></a>
+
+
+
+
+
+
+
+<form id="logoutForm" method="POST" th:action="@{/logout}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+<div align="center">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>User ID</th>
+            <th>E-mail</th>
+            <th>Full Name</th>
+           <th>Confirm Password</th> 
+            <th>Roles</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user: ${listUsers}">
+            <td th:text="${user.userId}">User ID</td>
+            <td th:text="${user.email}">E-mail</td>
+            <td th:text="${user.fullName}">First Name</td>
+            <td th:text="${user.confirmPassword}">First Name</td>
+            
+            <td th:text="${user.roles}">Roles</td>
+           
+            <td><a th:href="@{/users/edit/{id}(id=${user.userId})}" class="button">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

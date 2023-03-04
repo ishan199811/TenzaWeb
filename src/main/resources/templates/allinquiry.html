@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Inquiry Details</title>
+
+
+</head>
+
+
+        
+           <!--header area end-->
+ <a th:insert="fragment/allinquiryy"></a>
+
+
+ <a th:insert="admin/userInfo"></a>
+
+
+
+
+
+
+
+<form id="logoutForm" method="POST" th:action="@{/logout}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+ <span sec:authentication="name"></span>  <input type="button" onclick="document.forms['logoutForm'].submit()" value="Logout" class="button"></input>
+	
+<body>
+
+
+
+
+
+
+</body>
+
+</html>

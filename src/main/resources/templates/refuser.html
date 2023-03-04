@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div align="center" sec:authorize="hasAuthority('USER')">
+<header>References of user</header> 
+
+
+                                   
+                                   <li><div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+      <i><span sec:authentication="principal.fullName">Full Name</span></i>
+    </div>
+</li>
+</div>
+    <div align="center">
+    <table border="10" cellpadding="25">
+        <thead>
+            <tr>
+            
+            
+       
+									
+										<th>UserId </th>
+		<th>User Name</th>
+		
+		<th>Reference Id</th>
+		<th>Position</th>							
+									
+								      
+								     
+					
+					<!-- <th>Action</th> -->
+					
+									
+								
+								
+	<tbody>
+		<tr th:each="user: ${refr}">
+		<td th:text="${user.userId.userId}"></td>
+		<td th:text="${user.userId.fullName}"></td>
+		<td th:text="${user.referenceId}"></td>
+		<td th:text="${user.position}"></td>
+																				
+										
+										
+										<!-- <td><a th:href="@{/ed/{id}(id=${subCata.subCatagoryId})}" class="button">Edit</a>
+										<a th:href="@{/de/{id}(id=${subCata.subCatagoryId})}" class="button">Delete</a></td>
+										 -->
+										
+										
+										
+										
+										
+												
+
+									
+									</tr>
+								</tbody>
+							</table>
+						
+</div>
+
+                
+
+</body>
+</html>

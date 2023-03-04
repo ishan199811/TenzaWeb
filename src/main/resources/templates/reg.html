@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up || Tenza  </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+
+	<link href="css/CustomStyle.css" rel="stylesheet" />
+    <link href="css/w3.css" rel="stylesheet" />
+    <link rel="icon" href="../../../favicon.png" type="image/x-icon">
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+<body class="hold-transition login-page" style="background: linear-gradient(to right bottom, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255)) 0% 0%; background-attachment:fixed;background-size:cover; color:green">
+    <div class="login-box">
+        <div class="login-logo">
+            <div class="logo text-center">
+                
+                <img src="css/logo.png" style="width: 217px; height:50px;" />
+            </div>
+        </div>
+
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+
+            
+
+<div id="login-overlay" class="modal-dialog w3-text-blue-grey" style="padding-top:0px;">
+    <div class="modal-content">
+        <div class="modal-header w3-green">
+            <button type="button" class="close" onclick="window.location='../'"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel"><b><center> Registration for Become a Direct Seller<center> </b></h4>
+        </div>
+        <div class="modal-body" style="padding: 7px;">
+            <div class="well" style="padding: 6px; margin-bottom: -8px;">
+
+<div id="jAlert" class="hide" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+   <div id="jAlertMsg"></div>
+</div>
+
+
+
+
+<form action="/Account/SignUp" id="formSignUp" method="post" role="form">                    <div id="id01" class="w3-modal" style="display:none;background-color:#bababa;">
+                        <div class="w3-modal-content w3-card-8 " style="width: 500px; top:50px">
+
+                            <header class="w3-container w3-teal">
+                                <h5 class="pull-left">Validate OTP (One Time PassCode)</h5>
+                                <a href="javascript:" onclick="window.location = 'SignUp';"
+                                   class="w3-button pull-right w3-margin-top">Go Back</a>
+                            </header>
+                           
+
+
+                        </div>
+                    </div>
+                    <div style="display:block">
+
+                        <div class="row w3-margin-top" style="display:none;">
+                            <div class="col-md-6">
+                                <label>Placement</label>
+
+
+                                <select class="form-control" id="Position" name="Position"><option value="Left">Left</option>
+						<option value="Right">Right</option>
+														</select>
+
+                                
+                            </div>
+
+                            <div class="col-md-6 col-xs-12">
+                                <label>Product <span class="w3-text-red">*</span> </label>
+
+
+                                <select class="form-control" id="productItem" name="productItem"><option value="Silver 6500">Silver 6500</option>
+<option value="Gold 10000">Gold 10000</option>
+</select>
+                                
+                            </div>
+                        </div>
+                        <div class="row w3-margin-top">
+                            
+                            <div class="col-md-6">
+                                <label>Title <span class="w3-text-red">*</span> </label>
+                                <select class="form-control" data-val="true" data-val-required="The Title field is required." id="title" name="title" placeholder="Title" type="text" value="">
+								<option> Select Title </option>
+								<option> Mr.</option>
+								<option> Mrs.</option>
+								</select>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Full Name</label>
+                                <input class="form-control" data-val="true" data-val-length="Provide proper Full Name" data-val-length-max="100" data-val-length-min="10" data-val-required="You must provide a Full Name" id="name" maxlength="10" name="name" placeholder="Full Name" type="text" value="" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Mobile" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="row w3-margin-top">
+                            <div class="col-md-6">
+                                <label>Email </label>
+                                <input class="form-control" data-val="true" data-val-email="Invaild Email" data-val-required="The Email field is required." id="Email" name="Email" placeholder="Email" type="text" value="" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+
+                            </div>
+                            <div class="col-md-6">
+                                <label>Mobile No</label>
+                                <input class="form-control" data-val="true" data-val-length="Provide proper mobile no." data-val-length-max="100" data-val-length-min="10" data-val-required="You must provide a phone number" id="Mobile" maxlength="10" name="Mobile" placeholder="Mobile" type="text" value="" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Mobile" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+						
+						<div class="row w3-margin-top">
+						<div class="col-md-6">
+                                <label>Gender <span class="w3-text-red">*</span> </label>
+                                <select class="form-control" data-val="true" data-val-required="The Title field is required." id="title" name="title" placeholder="Title" type="text" value="">
+								<option> Select Gender </option>
+								<option> Male</option>
+								<option> Female</option>
+								<option> Other</option>
+								</select>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="frist_name">DOB</label>
+                                <input name="ctl00$ContentPlaceHolder1$txtdob" type="text" id="ContentPlaceHolder1_txtdob" placeholder="DOB" class="form-control" />
+                                                        
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Mobile" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+						
+                        <div class="row w3-margin-top">
+                            <div class="col-md-4">
+                                <label>Sponsor Id</label>
+                                <input class="form-control" data-val="true" data-val-required="The SponsorID field is required." id="SponsorID" name="SponsorID" placeholder="Sponsot ID" type="text" value="" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="SponsorID" data-valmsg-replace="true"></span>
+                                <a href="#" class="getsponsor">I Don't Have A Sponsor</a>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Sponsor Name</label>
+                                <input class="form-control" data-val="true" data-val-required="The SponsorName field is required." id="SponsorName" name="SponsorName" placeholder="Sponsor Name" readOnly="true" type="text" value="" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="SponsorName" data-valmsg-replace="true"></span>
+                            </div>
+                        
+						
+						
+                            
+                            <div class="col-md-4">
+                                <label>Placement <span class="w3-text-red">*</span> </label>
+                                <select class="form-control" data-val="true" data-val-required="The Title field is required." id="title" name="title" placeholder="Title" type="text" value="">
+								<option>Select Team</option>
+								<option>LGT</option>
+								<option>RGT</option>
+								</select>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+							</div>
+						
+						
+						
+						 <div class="row">
+                                                    <div class="container">
+                                                        <div class="form-group">
+
+                                                            <span class="checkbox ValidateCheck"><input id="ContentPlaceHolder1_agree" type="checkbox" name="ctl00$ContentPlaceHolder1$agree" />I agree with the terms and conditions</span>
+                                                   
+
+                                                            
+                                                          
+                                                            
+														</div>
+                                                    </div>
+                                                </div>
+						
+                      
+                    
+
+                       
+                         
+                         
+
+                       
+
+                    
+                    <div class="row w3-margin-top hidden">
+                        <div class="col-md-12" style="pointer-events:none">
+                            
+                            <input data-val="true" data-val-required="The OTP field is required." id="OTP" name="OTP" type="hidden" value="False" />
+                        </div>
+                    </div>
+                    <div class="row w3-margin-top">
+					<center>
+                        
+                        
+                        <div class="col-md-12" id="divbtnVerifyNO" style="display:block">
+                            <input type="button" id="btnVerifyNO" class="w3-btn w3-green w3-hover-indigo" value="Submit"  />
+                        </div> 
+                      </center> 
+                    </div>
+</form>            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <!-- /.login-box-body -->
+        <div class="login-footer text-center w3-text-blue">
+            Copyright &copy; 2021 <b><a href="/" class="text-black">Tenza Marketing Pvt Ltd.   </a></b><br>
+            All rights reserved
+        </div>
+    </div>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+<script src="/Scripts/knockout-3.4.0.debug.js"></script>
+<script src="/Scripts/knockout.mapping-latest.debug.js"></script>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+    <script src="/Scripts/sweetalert.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            getbanklist();
+            //for input color
+            $('.field-validation-error').each(function () {
+                $(this).closest("div").find("input").addClass('w3-pale-red');
+                $(this).closest("div").find("select").addClass('w3-pale-red');
+
+            });
+            // for remove color input control
+            $('.field-validation-error').closest("div").find("input").on('change', function () {
+                $(this).removeClass('w3-pale-red').removeClass('input-validation-error');
+                $(this).closest("div").find("span.field-validation-error").removeClass('field-validation-error').addClass('field-validation-valid').addClass('hide');
+
+            });
+            //for remove color and error from select
+            $('.field-validation-error').closest("div").find("select").on('change', function () {
+                $(this).removeClass('w3-pale-red').removeClass('input-validation-error');
+                $(this).closest("div").find("span.field-validation-error").removeClass('field-validation-error').addClass('field-validation-valid').addClass('hide');
+
+            });
+            $('#txtPanNo').keypress(function (event) {
+              
+                //var key = event.which;
+                //var esc = (key == 127 || key == 8 || key == 0 || key == 46);
+                ////alert(key); 
+                ////var nor = $("#txtPANNumber").mask("aaaaa9999a"); 
+                //var regExp = /[a-zA-z]{5}\d{4}[a-zA-Z]{1}/;
+                //var txtpan = $(this).val();
+                //alert(txtpan);
+                //if (txtpan.length < 10) {
+                //    if (txtpan.match(regExp)) {
+                //        //event.preventDefault(); 
+                //    }
+                //} else { event.preventDefault(); }
+            
+            });
+            // for get sponsor name from database
+            $('#SponsorID').on('change', function ()
+            {
+                debugger;
+
+                if (this.value != '')
+                {
+                    $.post("GetSponsorName?TrackID=" + this.value, function (data, status) {
+                        if (status == 'success' && data != '') {
+                            $('#SponsorName').val(data);
+                        }
+                        else {
+                            $('#SponsorName').val('');
+                            swal("Not Exist", "Sponsor ID not exist... try other Sponsor ID", "error");
+                        }
+                    });
+                }
+            });
+            $(".getsponsor").click(function () {
+                debugger;
+                $.get("GetrootSponsor", function (data, status) {
+
+                    if (status == 'success' && data != '') {
+
+                        $('#SponsorName').val(data.data.name);
+                        $('#SponsorID').val(data.data.trackid);
+                    }
+                    else {
+                        $('#SponsorName').val('');
+                        swal("Not Exist", "Sponsor ID not exist... try other Sponsor ID", "error");
+                    }
+                });
+            });
+            // 
+            $('#TrackId').on('change', function () {
+                if (this.value != '') {
+                    $.post("GetValidTrackId?TrackID=" + this.value, function (data, status) {
+                      
+                        if (status == 'success' && data=='True') {
+                         
+                        }
+                        else {
+                           
+                        swal("Already Exist", "User Name Already  exist... try other User Name", "error");
+                        }
+                    });
+                }
+            });
+            $('#btnResendOtp').on('click', function () {
+
+                $.post("SentVerification?mobile=" + $('#Mobile').val(), function (data, status) {
+                    if (status == 'success' && data == 'True') {
+                        $('#OTP').val('True');
+                        swal("Sent", "Veification code has been send to your mobile.", "success");
+                    }
+                    else {
+                        swal("Not Valid", "Entered OTP is wrrong..", "error");
+                    }
+                });
+            });
+            $('#btnVerifyNO').on('click', function () {
+
+                $.post("SentVerificationOnMobile?mobile=" + $('#Mobile').val() + "&email=" + $('#Email').val(), function (data, status) {
+                    if (status == 'success' && data == 'True') {
+
+                        $('#divbtnResendOtp1').css("display", "block");
+                        $('#divbtnSignUp').css("display", "block");
+                        $('#otpblock').css("display", "block");
+                        $('#divbtnVerifyNO').css("display", "none");
+                        swal("Sent", "Veification code has been send to your mobile.", "success");
+                    }
+                    else {
+                        swal("Not Valid", "Entered OTP is wrrong..", "error");
+                    }
+                });
+            });
+              $('#btnResendOtp1').on('click', function () {
+
+                $.post("SentVerificationOnMobile?mobile=" + $('#Mobile').val(), function (data, status) {
+                    if (status == 'success' && data == 'True') {
+
+                        $('#btnSignUp').css("display", "block");
+                        $('#otpblock').css("display", "block");
+                        $('#btnVerifyNO').css("display", "none");
+                        swal("Sent", "Veification code has been send to your mobile.", "success");
+                    }
+                    else {
+                        swal("Not Valid", "Entered OTP is wrrong..", "error");
+                    }
+                });
+            });
+
+            $('#btnVerify').on('click', function () {
+                if ($('#OTPVerify').val() != '') {
+                    $.post("GetVerifyStatus?OTPVerify=" + $('#OTPVerify').val(), function (data, status) {
+                        if (status == 'success' && data == '2') {
+                            $('#OTP').val('True');
+                            $('#formSignUp').submit();
+                        }
+                        else {
+                            if (data == '0')
+                                swal("Not Valid", "Entered OTP is wrrong..", "error");
+                            else
+                                swal("Session Time Out", " Your Otp Code has been expired Try again", "error");
+                            $('#OTPVerify').addClass('w3-pale-red');
+                        }
+                    });
+                }
+                else {
+                    $('#OTPVerify').addClass('w3-pale-red');
+                }
+            });
+
+        });
+        $("#ifsc").on("change", function () {
+
+            var ifsc = $("#ifsc").val();
+            if (ifsc != '') {
+                $.post(
+                    'GetBankAddresByIfscCode?ifsc=' + ifsc,
+                    null,
+
+                    function (response) {
+                        $('#bankaddress').val(response.ADDRESS);
+                        $('#BranchName').val(response.BRANCH);
+                    }
+                );
+            }
+        });
+        $('#txtPanNo').on('change', function () {
+            debugger;
+            var regex = /([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
+            if (regex.test($("#txtPanNo").val().toUpperCase())) {
+                if (this.value == '') {
+
+                }
+                else {
+                    $.post("GetPan?Pan=" + this.value, function (data, status) {
+                        if (status == 'success' && data != '') {
+                            swal("Already Exist", "Pan Number alread exist... try other Pan", "error");
+                            $('#Pan').val('');
+                        }
+                        else {
+
+                            swal("Exist", "go ahead", "success");
+                        }
+                    });
+                }
+            } else {
+                swal("Invalid Format", "Invalid Format", "error");
+                $('#Pan').val('');
+
+                return false;
+            }
+          
+        });
+        $('#SponsorID').on('change', function () {
+            debugger;
+            if (($('#Parentid').val() != '')  && ($('#SponsorID').val() != '')) {
+                $.post("GetParentName?TrackID=" + this.value+"&sponserid=" + $('#SponsorID').val(), function (data, status) {
+                    if (status == 'success' && data != '') {
+                        $('#ParentName').val(data);
+                    }
+                    else {
+                        $('#SponsorID').val('');
+                        $('#SponsorName').val('');
+                        $('#ParentName').val('');
+                        $('#Parentid').val('');
+                        swal("Not Exist", "Parent ID not exist... try other Parent ID", "error");
+                    }
+                });
+            }
+        });
+        $('#Parentid').on('change', function () {
+            debugger;
+            if (($('#Parentid').val() != '')  && ($('#SponsorID').val() != '')) {
+                $.post("GetParentName?TrackID=" + this.value+ "&sponserid=" + $('#SponsorID').val(), function (data, status) {
+                    if (status == 'success' && data != '') {
+                        $('#ParentName').val(data);
+                    }
+                    else {
+                        $('#SponsorID').val('');
+                        $('#SponsorName').val('');
+                        $('#ParentName').val('');
+                        $('#Parentid').val('');
+                        swal("Not Exist", "Parent ID not exist... try other Parent ID", "error");
+                    }
+                });
+            }
+        });
+
+      
+        function getbanklist() {
+            $.get(
+                'Banklist',
+                null,
+                function (response) {
+                    $.each(response.data, function (index, value) {
+                        $('#BankName').append($('<option/>', {
+                            value: value.bankname,
+                            text: value.bankname
+                        }));
+                    });
+                }
+            );
+        }
+    </script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="website/css/font.awesome.css">
+        <link
+	href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css"
+	rel="stylesheet" />
+	<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: #fff;
+            font-family: 'Nunito', sans-serif;
+            border-top: 50px solid rgb(86, 186, 237);
+        }
+        .cas__container{ 
+            margin-bottom: 22px;
+        }
+        .create__account__section {
+            padding: 14px 18px!important;
+        }
+        .cas__section {
+            width: 700px;
+            margin: auto;
+        }
+        .cas__logo {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 100%;
+            
+        }
+        .cas__logo img{
+            width: 200px;
+        }
+        .cas__form{
+            width: 350px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 4px;
+            border: 1px #ddd solid;
+            background-color: #fff;
+            position: relative;
+            padding: 14px 18px;
+            border-radius: 4px;
+        }
+        .cas__heading{
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 1.2;
+            margin-bottom: 10px !important;
+        }
+        .input__area {
+            margin-bottom: 14px;
+            display: block;
+        }
+        .input__area label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        .input {
+            display: flex;
+            gap: 5px;
+                }
+        .__input{ 
+            width: 100%;
+            padding: 8px;
+        }
+        .input input, select{
+            border: 1px solid gray;
+            border-radius: 2px;
+        }
+        .__note {
+            font-size: 12px;
+            color: #000;
+            font-weight: 600;
+        }
+        .__btn {
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+        input.__btn__submit {
+            width: 100%;
+            height: 30px;
+            background: #377fd8;
+            color: #fff;
+            border-radius: 2px;
+            border: 1px solid #377fd8;
+        }
+        .__have {
+            font-size: 13px;
+        }
+        .input_gender select{
+            width: 100%;
+            padding: 8px 0px;
+        }
+        .fa-asterisk{
+            font-size: 6px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    
+<script src="${contextPath}/resources/static/website/js/customjs/AjaxSource.js"></script>
+    <script>
+        $(function () {
+        $("#datepicker").datepicker({ 
+                autoclose: true, 
+                todayHighlight: true
+        }).datepicker('update', new Date());
+        });
+    </script>    
+</head>
+    <body>
+        <section class="cas__container"> 
+            <div class="create__account__section">
+                <div class="cas__logo">
+                    <img src="website/img/logo/logo.png" alt="logo">
+                </div>
+                <div class="cas__section">
+                <form th:action="@{/registrations}" class="cas__form" th:object="${user}" method="post">
+                  
+                      <div class="cas__heading">
+                        Create Account
+                      </div>
+                      
+                       <div class="input__area">
+                            <label>Full Name <i class="fa fa-asterisk" style="color:red"></i></label>
+                            <div class="input">
+                                <input type="text" th:field="*{fullName}" class="form-control c_fullName" placeholder="full name" required>
+                            </div>
+                        </div>
+                        <div class="input__area">
+ <div class="alert alert-primary" role="alert" th:text="${m}" th:if="${m}" style="color:red"></div>
+                            <label>Mobile Number <i class="fa fa-asterisk" style="color:red"></i></label>
+                            <div class="input">
+                                <select>
+                                   <option value="india" selected>IN +91</option>
+                                   <option value="india">IN +91</option>
+                                </select>
+                                <input type="text" th:field="*{mobileNumber}" class="form-control c_mobileNum" placeholder="Mobile Number" required>
+                            </div>
+                        </div>
+                                        <div align="center">
+	
+</div>
+
+                        
+                        <div class="input__area">
+            <div class="alert alert-primary" role="alert" th:text="${e}" th:if="${e}" style="color:red"></div>
+                            <label>Email (optional)</label>
+                            <div class="input">
+                                <input type="text" th:field="*{email}" class="form-control c_email" placeholder="Your email">
+                            </div>
+                        </div>
+                        <div class="input__area date" >
+                            <label>DOB <i class="fa fa-asterisk" style="color:red"></i></label>
+                            <div class="input">
+                               <input type="text" th:field="*{DOB}" class="form-control c_dob" placeholder="Your DOB" id="datepicker" data-date-format="mm-dd-yyyy" required>
+                            </div>
+                        </div>
+                        <div class="input__area">
+                            <label>Select Gender <i class="fa fa-asterisk" style="color:red"></i></label>
+                            <div class="input_gender">
+                                <select class="form-control c_gender" th:field="*{gender}" >
+                                    <option value="gender" selected>Select Gender</option>
+                                   <option value="gender">Male</option>
+                                   <option value="gender">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="input__area">
+                            <label>Sponser Id <i class="fa fa-asterisk" style="color:red"></i></label>
+                            <div class="input">
+                               <input type="password" class="form-control c_sponserId" placeholder="Sponser Id" required>
+                            </div>
+                        </div>
+                        <div class="input__area">
+                            <label>Sponser Name <i class="fa fa-asterisk" style="color:red"></i></label>
+                            <div class="input">
+                               <input type="password" class="form-control c_sponserName" placeholder="Sponser Name" required>
+                            </div>
+                        </div> -->
+                        <div class="input__area">
+                            <label>Create Password</label>
+                            <div class="input">
+                               <input type="password" th:field="*{password}" class="form-control c_password" placeholder="Create Password">
+                            </div>
+                        </div>
+                        <div class="input__area">
+                            <label>Confirm Password</label>
+                            <div class="input">
+                               <input type="password" th:field="*{confirmPassword}" class="form-control c_confirmPassword" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                           <div class="alert alert-primary" role="alert" th:text="${w}" th:if="${w}" style="color:red"></div>
+                          <div class="input__area">
+                            <label>Reference Id</label>
+                            <div class="input">
+                               <input type="text" th:field="*{refenceId}" class="form-control c_referenceId" placeholder="ReferenceId">
+                            </div>
+                        </div>
+                        <div class="__extra__control">
+                            <div class="__have">
+                               <a href="/register">I don't have sponsered Id</a>
+                            </div>
+                        </div>
+                        
+                      <div class="input__area">
+                                      <label for="product-category" class="font">Select Position:</label>
+                                      
+                                       <select  th:field="*{position}" class="field-select">
+                                      
+                                        <option  value="0" >left</option>
+                                        <option  value="1" >right</option>
+                                        </select>
+                                  </div>
+                         
+                      
+                        <div class="__note">
+                            We will send you a text to verify your phone.
+                            Message and Data rates may apply.
+                        </div>
+                        <div class="__btn">
+                            <input type="submit" value=" Continue" class="__btn__submit" >
+                        </div>
+                        <div class="__extra__control">
+                            <div class="__have">
+                                Already have an account? <a href="log.html">Sign in</a>
+                            </div>
+                        </div>
+              </form>
+                </div>
+            <div class="cas__footer">
+
+            </div>
+            </div>
+            </section>
+  
+
+    </body>
+</html>

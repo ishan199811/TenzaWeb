@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Settings</h1>
+<div class="alert alert-primary" role="alert" th:text="${otp}" th:if="${otp}"></div>
+ <form action="#" th:object="${dto}" th:action="@{/forgestpasswordotpverify}" method="post">
+
+			
+			<input type="text" th:field="*{email}"  th:value="${dto.email}" placeholder="Enter Email"> 
+		
+			
+			 <input type="text" th:field="*{otp}" placeholder="Enter otp"> 
+			
+			 
+
+			  <input type="Submit" value="verify otp">
+			  
+			 
+		
+		</form> 
+		
+</body>
+</html>

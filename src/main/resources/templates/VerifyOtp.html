@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+</head>
+<body>
+
+<br>
+
+
+	<div align="center">
+	 <div sec:authorize="hasAuthority('USER')">
+                               <div class="logo">
+                                        
+                                            <img src="website/img/logo/logo.png" alt=""></a>
+                                    </div>
+                                        
+                                   <li><div sec:authorize="isAuthenticated()">
+ 
+  <p>thank you for connecting with  Tenza Marketing</p><br>
+      <i><span sec:authentication="principal.fullName">Full Name</span></i>
+   <br>
+   
+   
+ 
+    Your user Id for login<br><b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+    <br>
+   
+    &nbsp;<br>
+    <p>We have sent OTP on your email</p><br>
+      <a><span sec:authentication="principal.email"></span></a>
+    
+    
+    
+    
+</div>
+</li>
+</div>
+<br>
+<br>
+<div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+	
+		<form action="#" th:object="${dto}" th:action="@{/otpverify}" method="post">
+
+			
+
+			<input type="hidden" th:field="*{email}" th:value="${dto.email}" placeholder="Enter Email"> 
+			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Full name error</div>
+			
+			 <input type="text" th:field="*{otp}" name="otp" th:value="${dto.otp}" placeholder="Enter OTP"> 
+			<div th:if="${#fields.hasErrors('otp')}" th:errors="*{otp}">Full name error</div>
+			 
+<br>
+			  <input type="Submit" value="verify">
+<br>
+			   <a href="/resendotp" class="reg-btn text-decor btn-decor" >Re-Send</a>
+			 
+		
+		</form>
+		
+		
+		 
+	</div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"> 
+     <head>
+          <meta charset="UTF-8" />
+          <title>CodePen - bootstrap sidebar</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+         
+              
+               <!-- <link rel="stylesheet" href=".//css/style.css"> -->
+               <!-- <link rel="stylesheet" href=".//css/add produucts.css"> -->
+               <!-- <link rel="stylesheet" href=".//css/style.css"> -->
+               <link rel="stylesheet" href="./css/add produucts.css">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.g.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+     </head>
+     
+     <style>
+          .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom:0px;
+}
+.form-control {
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.mg {
+    margin-bottom: 20px;
+}
+     </style>
+     <body>
+     <head th:insert="fragment/ahead"></head>
+                   <div class="product-detail">
+                        <div class="title">
+                             <h1>Add Product</h1>
+                        </div>
+                        <form th:object="${product}" th:action="@{/saveP}"  method="post"  enctype="multipart/form-data">
+                       
+                             
+                                  <div class="category-block mg">
+                                      <label for="product-category" class="font">Select Brand:</label>
+                                      
+                                       <select   th:field="*{brandId}" class="field-select">
+                                      
+                                        <option th:each="brand: ${brand}" th:value=" ${brand.brandId}" th:text=" ${brand.brandName}"></option>
+                                        </select>
+                                  </div>
+                         
+                      
+                         
+                                  <div class="product-brand-block mg">
+                                      <label for="product-brand-category"class="font">Select  Category:</label>
+                                     <select   th:field="*{catagoryId}" class="field-select">
+                                      
+                                        <option th:each="catagory: ${catagory}" th:value=" ${catagory.catagoryId}" th:text=" ${catagory.catagoryName}"></option>
+                                        </select>
+                                 
+                                  </div>
+                            
+                        
+                                  <div class="sub-category-block mg">
+                                      <label for="sub-category"class="font">Sub Category:</label>
+                                     <select   th:field="*{subCatagoryId}" class="field-select">
+                                      
+                                        <option th:each="subcatagory: ${subcatagory}" th:value=" ${subcatagory.subCatagoryId}" th:text=" ${subcatagory.subCatagoryName}"></option>
+                                        </select>
+                      
+                                  </div>
+                       <div class="sub-category-block mg">       
+                                                                <label >Select Measaurement:</label>
+                                        <select   th:field="*{measurementId}" class="field-select">
+                                      
+                                        <option th:each="measurement: ${measurement}" th:value=" ${measurement.measurementId}" th:text=" ${measurement.measurementName}"></option>
+                                        </select>
+                            </div>
+                                  <div class="product-code-block mg">
+                                      <label for="product-code"class="font">Product Code:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="product-code"
+                                      placeholder="product code"
+                                      >
+                                  </div>
+                            
+                        
+                                  <div class="product-block mg">
+                                      <label for="product"class="font">Product Name:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="product" th:field="*{productName}" placeholder="ProductName"
+                                      >
+                                  </div>
+                         
+                        
+                                  <div class="product-price-block  mg">
+                                      <label for="product-price"class="font">Product Price:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="product-price" th:field="*{productPrice}"
+                                      placeholder="product-price"
+                                      >
+                                  </div>
+                             
+                         
+                                  <div class="product-discount-price-block mg">
+                                      <label for="product-discount-price"class="font">Product Discount Price:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="discount-priice" th:field="*{productDiscount}"
+                                      placeholder="discount"
+                                      >
+                                  </div>
+                             
+                        
+                                  <div class="product-color-block mg">
+                                      <label for="product-color"class="font">Product Color:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="Product-color"
+                                      placeholder="select product color"
+                                      >
+                                  </div>
+                             
+                         
+                                  <div class="product-description-block mg">
+                                      <label for="description"class="font">Product Description:</label>
+                                      <textarea input type="text"
+                                      class="form-control"
+                                      id="description" th:field="*{productDescription}"
+                                      placeholder="product-description"
+                                      ></textarea>
+                                  </div>
+                        
+                         <div class="product-specification-block mg">
+                         
+                             <label> Insert Product Photos: </label>
+    <input type="file" name="image" accept="image/png, image/jpeg" />
+     
+                         
+                         </div>
+                                  <div class="product-specification-block mg">
+                                      <label for="product-specification"class="font">Product-Specification:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="specification"
+                                      placeholder="product-specification"
+                                      >
+                                  </div>
+                              
+                        
+                                  <div class="delivery-charge-block mg">
+                                      <label for="delivery" class="font">Select Delivery Charge:</label>
+                                      <input type="text"
+                                      class="form-control"
+                                      id="delivery"
+                                      placeholder="select delivery charges"
+                                      >
+                                  </div>
+                             
+                         
+                                  <div class="buttonns">
+                                      <input type="Submit" class="btn btn-info btn-lg" name="save" value="Submit" >
+                                  </div>
+                               </form>
+                     
+                   </div>
+                   <div class="table___c">
+                    <form >
+                     <table class="table">
+                          <thead>
+                            <tr>
+       <th>Id</th>
+									
+										<th>Product Name </th>
+										<th>Brand Name </th>
+										<th>Product Price </th>
+                                        <th>Product Description </th>
+                                        <th>Product Image </th>
+                                        <th>Product Discount</th>		
+										<th>Category Name </th>
+										<th>Sub Category Name </th>
+										<th>Measurement Name </th>
+									
+									
+								      
+								     
+					
+					<th>Action</th>
+					
+									
+								
+								
+	<tbody>
+		<tr th:each="product1: ${product1}">
+		<td th:text="${product1.productId}"></td>
+										<td th:text="${product1.productName}"></td>
+										<td th:text="${product1.brandId.brandName}"></td>
+								        <td th:text="${product1.productPrice}"></td>
+								        <td th:text="${product1.productDescription}"></td>	
+								        <td th:text="${product1.imageUrl}"></td>
+								        <td th:text="${product1.productDiscount}"></td>	
+										<td th:text="${product1.catagoryId.catagoryName}"></td>
+										<td th:text="${product1.subCatagoryId.subCatagoryName}"></td>
+										<td th:text="${product1.measurementId.measurementName}"></td>
+									
+										
+										
+										
+										<td><a th:href="@{/ed/{id}(id=${product1.productId})}" class="btn btn-success">Edit</a>
+										<a th:href="@{/de/{id}(id=${product1.productId})}" class="btn btn-success">Delete</a></td>
+										
+										
+									
+									</tr>
+	  
+                          <tbody>
+                          
+                          </tbody>
+                        </table>
+                    </form>
+             
+               </div>
+               </div>
+          </nav>
+<head th:insert="fragment/adminpannel">
+     </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+     <head>
+          <meta charset="UTF-8" />
+          <title>CodePen - bootstrap sidebar</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+          <!-- <link rel="stylesheet" href="./static/css/style.css" /> -->
+               <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+        <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+        <link rel="stylesheet" href="./css/add brand.css">
+            
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+     </head>
+     <style>
+          .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom:0px;
+}
+.form-control {
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.mg {
+    margin-bottom: 20px;
+}
+     </style>
+     <body>
+          <!-- partial:index.partial.html -->
+      <head th:insert="fragment/ahead"></head>
+                   <div class="product-detail">
+                        <div class="title">
+                             <h1>Add Brand</h1>
+                        </div>
+                        <form th:action="@{/savebrand}" th:object="${brand}" enctype="multipart/form-data" method="POST">
+                                  <div class="category-block mg">
+                                      <label for="product-category" class="font"> Brand Name </label>
+                                      <input type="text"
+                                       class="form-control"
+                                        id="product-category" th:field="*{BrandName}"
+                                         placeholder="Select brand category"/>
+                                  </div>
+                            
+                                 
+                                  <div class="buttonns">
+                                      <input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+                                      
+                                  </div>
+                        </form>
+                        <div class="table___c">
+                             <form action="">
+                              <table class="table">
+                                   <thead>
+                                      <tr>
+       <th>Id</th>
+									
+										<th>Brand Name </th>
+									
+									
+								      
+								     
+					
+					<th>Action</th>
+					
+									
+								
+								
+	<tbody>
+		<tr th:each="brand1: ${brand1}">
+		<td th:text="${brand1.brandId}"></td>
+										<td th:text="${brand1.brandName}"></td>
+										
+										
+										
+										<td><a th:href="@{/ed/{id}(id=${brand1.brandId})}" class="btn btn-success">Edit</a>
+										<a th:href="@{/de/{id}(id=${brand1.brandId})}" class="btn btn-success">Delete</a></td>
+										
+										
+										
+										
+										
+										
+												
+
+									
+									</tr>
+ </thead>
+                                  
+                                 </table>
+                             </form>
+                     
+                     </div>
+                   </div>
+               </div>
+          </nav>
+          <!--msb: main sidebar-->
+<head th:insert="fragment/adminpannel">
+     </body>
+</html>

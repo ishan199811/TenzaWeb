@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- Mirrored from test7.way4india.com/products.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Apr 2021 10:29:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head th:insert="fragment/head">
+
+<body>
+    <form method="post" action="http://test7.way4india.com/products.html" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1MmRkthyL61WbyeXFDCydCQAKRhqfScv5qVlOrLiYsXlTNJg=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="AA98EE0D" />
+</div>
+<header th:insert="fragment/header">
+        
+            </header>
+
+
+ <div class="Checkout_section bg-light-grey ptb60" align="center">
+       
+    
+      
+        <div class="container" align="center">
+            
+            <div class="checkout_form">
+             
+                <div class="row" >
+               
+                    <div class="col-12 col-sm-6">
+                        <div class="checkout-box">
+                            <h3>Address</h3>
+                            
+                             <form th:object="${address}" th:action="@{/saveaddres}"  method="post"  enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 mb-20">
+                                    <label>Company Name</label>
+                                    <input  th:field="*{company}" type="text">
+                                </div>
+                                <div class="col-12 col-sm-6 mb-20"  th:field="*{country}">
+                                    <label for="country">country <span>*</span></label>
+                                    <select  class="select_option" name="cuntry" id="country" style="display: none;">
+                                        <option value="2">bangladesh</option>
+                                        <option value="3">Algeria</option>
+                                        <option value="4">Afghanistan</option>
+                                        <option value="5">Ghana</option>
+                                        <option value="6">Albania</option>
+                                        <option value="7">Bahrain</option>
+                                        <option value="8">Colombia</option>
+                                        <option value="9">Dominican Republic</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6 mb-20">
+                                    <label>State  <span>*</span></label>
+                                    <input th:field="*{state}" placeholder="House number and street name" type="text">
+                                </div>
+                                <div class="col-12 col-sm-6 mb-20">
+                                    <label>pincode  </label>
+                                    <input th:field="*{pincode}" placeholder="Apartment, suite, unit etc. (optional)" type="text">
+                                </div>
+                                 <div class="col-12 col-sm-6 mb-20">
+                                    <label>city <span>*</span></label>
+                                    <input th:field="*{city}" type="text">
+                                </div>
+                                <div class="col-12 col-sm-6 mb-20">
+                                    <label>AddressLine 1  <span>*</span></label>
+                                    <input th:field="*{addressLine1}" type="text">
+                                </div>
+                                 <div class="col-12 col-sm-6 mb-20">
+                                    <label>AddressLine 2  <span>*</span></label>
+                                    <input th:field="*{addressLine2}" type="text">
+                                </div>
+                                 <div class="col-12 col-sm-6 mb-20">
+                                    <label>AddressLine 3  <span></span></label>
+                                    <input th:field="*{addressLine3}" type="text">
+                                </div>
+                                <div class="col-12 col-sm-12 mb-20">
+                                    <label>Phone<span>*</span></label>
+                                    <input  th:field="*{mobileno}" type="text">
+                                </div>
+                                <div class="col-12 col-sm-12 mb-20">
+                                    <label>Email Address   <span>*</span></label>
+                                    <input  th:field="*{email}"type="text">
+                                </div>
+                                <div class="order_button">
+                                    <input type="submit" value="Save Address" ></input>
+                                </div>
+                            </div>
+                             </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+</body>
+</html>
