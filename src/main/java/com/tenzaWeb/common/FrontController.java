@@ -16,6 +16,11 @@ public class FrontController {
 		return "log";
 	}
 	
+	@RequestMapping("/f")
+	public String viewLogPage2() {
+		return "ContactUs";
+	}
+	
 	@RequestMapping("/hello")
 	public String viewdemoPage() {
 		return "reg";
@@ -98,6 +103,10 @@ public class FrontController {
 					return "admin/add category.html";
 				}
 
+			@RequestMapping("/l")
+			public String shoeAdd() {
+					return "Register.html";
+				}
 
 
 }
