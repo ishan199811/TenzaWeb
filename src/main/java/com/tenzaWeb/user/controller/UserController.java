@@ -63,7 +63,15 @@ public class UserController {
 		//("......................................hellopage");
 		model.addAttribute("user", new UserDTO());
 
-		return "regg";
+		return "Register";
+
+	}
+	@RequestMapping("/register2")
+	public String schedulepage2(Model model) {
+		//("......................................hellopage");
+		model.addAttribute("user", new UserDTO());
+
+		return "Register2";
 
 	}
 	
@@ -155,8 +163,8 @@ public class UserController {
 		userService.saveDataa(userDto);
 		
 		//("hello node has been created ______________________________________________________________");
-		securityService.autoLogin(userDto.getUserId(), userDto.getConfirmPassword()); 
-		userService.saveNode();
+	//	securityService.autoLogin(userDto.getUserId(), userDto.getConfirmPassword()); 
+		//userService.saveNode();
 		//("......................................hello1");
 
 		return "redirect:/otppage";
@@ -197,7 +205,7 @@ public class UserController {
 		}
 		String userId = securityService.findLoggedInUsername();
 		User user = userService.findByUserId(userId);
-		dto.setEmail(user.getEmail());
+		//dto.setEmail(user.getEmail());
 		
 		boolean result = messageservice.verifyotp(dto);
 		

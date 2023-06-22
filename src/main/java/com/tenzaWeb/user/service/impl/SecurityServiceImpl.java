@@ -67,6 +67,9 @@ public class SecurityServiceImpl implements SecurityService {
 	            SecurityContextHolder.getContext().setAuthentication(auth);
 	            logger.debug(String.format("Auto login %s successfully!", userId));
 	        }
+	        else {
+	        	logger.debug(String.format("Auto login %s failed!", userId));
+	        }
 	    }
 	    @Override
 		public String findLoggedInUsername() {

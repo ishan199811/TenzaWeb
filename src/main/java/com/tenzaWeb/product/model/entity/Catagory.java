@@ -16,9 +16,33 @@ import javax.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
-@Data
+
 public class Catagory {
 	
+	public Long getCatagoryId() {
+		return catagoryId;
+	}
+
+	public void setCatagoryId(Long catagoryId) {
+		this.catagoryId = catagoryId;
+	}
+
+	public String getCatagoryName() {
+		return catagoryName;
+	}
+
+	public void setCatagoryName(String catagoryName) {
+		this.catagoryName = catagoryName;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 Long catagoryId;
