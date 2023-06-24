@@ -81,19 +81,16 @@ public class AProductController {
 	
 	/* @PreAuthorize("hasRole('USER')") */
 	@PostMapping("/saveP")
-	public String submitForm(@Valid @ModelAttribute("product") Product product,Model model,@RequestParam("image") MultipartFile multipartFile,
-	        BindingResult bindingResult) throws IOException {
+	public String submitForm(@Valid @ModelAttribute("product") Product product,Model model,@RequestParam("image1") MultipartFile multipartFile1,@RequestParam("image2") MultipartFile multipartFile2,@RequestParam("image3") MultipartFile multipartFile3,@RequestParam("image4") MultipartFile multipartFile4,@RequestParam("image5") MultipartFile multipartFile5,
+	    BindingResult bindingResult) throws IOException {
 	    System.out.println(product);
 	     if (bindingResult.hasErrors()) {       
 	            return "admin/addproduct";
 	 } 
 	    else {
-	       	 String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-	         product.setImageUrl("/website/img2/product/"+fileName);
-	         productService.save(product);
-	    	String uploadDir = "target/classes/static/website/img2/product/" ;
-	         
-	         FileUploaderUtil.saveFile(uploadDir, fileName, multipartFile);
+	       	 
+	         productService.save(product,multipartFile1 ,multipartFile2,multipartFile3,multipartFile4,multipartFile5,model);
+	    	
 	    }
 	      return "redirect:/addproduct.html";
 	}

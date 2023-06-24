@@ -16,5 +16,11 @@ public class Image {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long imageId;
+	private String imageurl1;
+	private String imageurl2;
+	private String imageurl3;
+	private String imageurl4;
+	private String imageurl5;
+	
 	
 }
