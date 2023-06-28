@@ -1,0 +1,201 @@
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
+
+/*# sourceMappingURL=custom.css.map */
+.plan-wrap{
+    width:100%;
+    height:auto;
+    border-bottom:1px solid rgba(0,0,0,.1);
+    padding:10px 0px;
+}
+.plan-wrap h5{
+    color:#000;
+    text-transform:capitalize;
+}
+.plan-wrap p{
+    margin-bottom:5px;
+    color:black;
+}
+.plan-wrap p i{
+    margin-right:5px;
+}
+.farmula{
+    background:#6777ef;
+    padding:10px;
+    color:white;
+    text-align:center;
+    border-radius:8px;
+}
+.plan-wrap table{
+    width:100%;
+    height:auto;
+}
+.plan-wrap table thead tr th{
+    padding:8px;
+    background:#6777ef;
+    color:white;
+}
+.plan-wrap table tbody tr td{
+    padding:8px;
+    color:black;
+}
+.plan-wrap ul{
+    padding-left:0px;
+}
+.pl20{
+    padding-left:20px !important;
+}
+.plan-wrap ul li{
+    font-size: 15px;
+    line-height: 40px;
+    color:black;
+}
+.plan-wrap ol{
+    padding-left:20px;
+}
+.plan-wrap ol li{
+    font-size: 15px;
+    line-height: 40px;
+    color:black;
+}
+/*offer css*/
+.offer1{
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: center;
+    height: 210px;
+    width: 210px;
+    padding: 7px 4px 0;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+.offer1:before{
+    content: '';
+    background-color: #fff;
+    height: 157px;
+    width: 157px;
+    border-radius: 15px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) inset;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+}
+.offer1 .offer1-icon{
+    color: #fff;
+    background: linear-gradient(#F83F83,#E2056F);
+    line-height: 70px;
+    font-size: 35px;
+    height: 70px;
+    width: 70px;
+    margin: 0 auto 8px;
+    border-radius: 19px 0 50px;
+    transform: rotate(45deg);
+}
+.offer1 .offer1-icon i{ transform: rotate(-45deg); }
+.offer1 .offer1-value{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 13px 0;
+    display: block;
+    color:black;
+}
+.offer1 h3{
+    color: #fff;
+    background: linear-gradient(#F83F83,#E2056F);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    padding: 10px 5px;
+    margin: 0;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+}
+.offer1 h3:before,
+.offer1 h3:after{
+    content: "";
+    background: linear-gradient(to right bottom, transparent 49%,#c90460 50%);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: -2;
+}
+.offer1 h3:after{
+    transform: rotateY(180deg);
+    left: auto;
+    right: 0;
+}
+.offer1.purple .offer1-icon,
+.offer1.purple h3{
+    background: linear-gradient(#B05FDF,#7B26DD);
+}
+.offer1.purple h3:before,
+.offer1.purple h3:after{
+    background: linear-gradient(to right bottom,transparent 49%,#5a07bf 50%);
+}
+/*.counter.blue .counter-icon,
+.counter.blue h3{
+    background: linear-gradient(#00BCF9,#027AF6);
+}
+.counter.blue h3:before,
+.counter.blue h3:after{
+    background: linear-gradient(to right bottom,transparent 49%,#0466c9 50%);
+}
+.counter.green .counter-icon,
+.counter.green h3{
+    background: linear-gradient(#aff400,#6cc425);
+}
+.counter.green h3:before,
+.counter.green h3:after{
+    background: linear-gradient(to right bottom,transparent 49%,#489e03 50%);
+}*/
+@media screen and (max-width:990px){
+    .offer1{ margin-bottom: 40px; }
+}
+/*reward wrapper css*/
+.reward-wrap{
+    width:100%;
+    height:auto;
+}
+.reward-wrap table{
+    width:100%;
+    height:auto;
+}
+.reward-wrap table thead tr th{
+    padding: 10px;
+    background: #6777ef;
+    color: white;
+    font-size: 19px;
+    text-align: center;
+    border: 1px solid #000;
+}
+.reward-wrap table tbody tr td{
+    background: rgba(0,0,0,.1);
+    color: black;
+    font-size: 19px;
+    text-align: center;
+    border: 1px solid #6778ef;
+    text-transform:capitalize;
+}
+@media only screen and (max-width:767px){
+    .plan-wrap table{
+        display:block;
+        overflow-x:scroll;
+    }
+    .reward-wrap table{
+        display:block;
+        overflow-x:scroll;
+    }
+    .padding-20 {
+    padding: 15px;
+}
+    .reward-wrap table tbody tr td{
+        padding:5px 10px
+    }
+}

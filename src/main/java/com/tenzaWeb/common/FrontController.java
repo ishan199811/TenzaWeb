@@ -15,10 +15,18 @@ public class FrontController {
 	public String viewLogPage() {
 		return "log";
 	}
+	@RequestMapping("/log1.html")
+	public String viewLogPage1() {
+		return "UserDashBoard";
+	}
 	
 	@RequestMapping("/f")
 	public String viewLogPage2() {
 		return "ContactUs";
+	}
+	@RequestMapping("/fu")
+	public String viewLogPage22() {
+		return "imchain";
 	}
 	
 	@RequestMapping("/hello")

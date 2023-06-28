@@ -21,8 +21,8 @@ import com.tenzaWeb.product.model.entity.Product;
 
 import lombok.Data;
 
-@Entity
 
+@Entity
 public class User {
 	public long getId() {
 		return id;

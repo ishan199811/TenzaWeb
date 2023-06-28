@@ -1,7 +1,5 @@
 package com.tenzaWeb.product.model.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,16 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
-
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
 @Entity
@@ -126,6 +120,10 @@ public class Product {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subCatagory_id", nullable = false)
 	private SubCatagory subCatagoryId;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "image_id", nullable = false)
+	private Image imageId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "measurement_id" , nullable = false)
@@ -151,6 +149,14 @@ public class Product {
 	public void setImageUrl(String string) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Image getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(Image imageId) {
+		this.imageId = imageId;
 	}
 	
 	

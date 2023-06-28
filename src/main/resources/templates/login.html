@@ -1,210 +1,121 @@
-<!DOCTYPE html>
-<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="fragment/head">
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport" /><title>
+	Login
+</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="login/Assets/css/app.min.css" /><link rel="stylesheet" href="login/Assets/bundles/bootstrap-social/bootstrap-social.css" />
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="login/Assets/css/style.css" /><link rel="stylesheet" href="login/Assets/css/components.css" />
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="login/Assets/css/custom.css" /><link rel="shortcut icon" type="image/x-icon" href="website/img/favicon.ico" />
+     <script type="text/javascript">
+         function userValid() {  
+                    var trackid,pass;  
+             trackid = document.getElementById("txttackid").value;
+             pass = document.getElementById("txtpass").value;  
+
+                            if (trackid == '') {
+                                document.getElementById("txttackid").style.borderColor = "red";
+                                document.getElementById("txttackid").focus();
+                                return false;  
+                            }  
+                            if (pass == '') {  
+                                     document.getElementById("txtpass").style.borderColor = "red";
+                                document.getElementById("txtpass").focus();
+                                    
+                               return false;  
+                            }     
+                              return true;  
+        };
+    </script>
 </head>
-<header th:insert="fragment/header">
-</header>
-<style>
-body{
-    font-family: 'Nunito', sans-serif;
-}
-.header-border-bototm {
-    border-bottom: 1px solid #ffefd569;
-    position: fixed;
-    width: 100%;
-}
-.header-pd {
-    padding: 20px 0px;
-}
-.bg-color {
-    background: rgb(28,89,116);
-    background: linear-gradient( 
-90deg
- , rgb(40 58 81) 22%, rgb(220 109 204) 100%);
-}
-.head-d {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: white;
-}
-i.fas.fa-tshirt {
-    color: #94bb1b;
-}
-.logo span {
-    color: #94bb1b;
-}
-.nav-style {
-    font-weight: 700;
-}
-.nav li {
-    margin: 0px 20px;
-}
-.header-detail-color {
-    color: white;
-}
-.text-decor {
-    text-decoration: none;
-}
-.header-detail-color:hover {
-    color: rgb(216, 143, 9);
-}
-.l-shadow:hover {
-    text-shadow: 0px 2px 4px rgb(22 21 21);
-}
-.border-l:hover {
-    /* border: 1px solid orange; */
-    padding: 5px 10px;
-    border-radius: 3px;
-    background-color: rgb(216, 143, 9);
-    color: white;
-    box-shadow: 0px 2px 4px rgb(22 21 21);
-}
-.border-l{
-    padding: 5px 10px;
-}
-h5.title {
-    margin-top: 100px;
-  
-    padding: 25px;
-}
-.email-manual {
-    /* background: whitesmoke; */
-    padding: 25px;
-}
-.name-type {
-    margin-left: 35%;
-}
-.login-weight {
-    font-weight: 900;
-    font-size: 25px;
-    color: #393838;
-}
-.form-control {
-    display: block;
-    width: 50%;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #858687;
-    background-color: #23212199;
-    background-clip: padding-box;
-    border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-.form-control:focus {
-    color: #aeafaf;
-    background-color: #211e1e45;
-    border-color: #ffa000;
-    outline: 0;
-    box-shadow: 0 0 0 2.25px rgb(14 136 163 / 40%);
-}
-.password-type{
-    margin-top: 20px;
-}
-.text-decor{
-    text-decoration: none;
-}
-.mg-top{
-    margin-top: 30px;
-}
-/* .login-btn {
-    font-size: 18px;
-    font-weight: 600;
-    background: #ffa000;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-} */
-.btn-decor {
-    font-size: 15px;
-    font-weight: 600;
-    background: #ffa000;
-    color: white;
-    padding: 10px 10px;
-    border-radius: 4px;
-}
-.btn-decor:hover {
-    font-size: 15px;
-    font-weight: 600;
-    background: #ffffff;
-    color: #f7a211fb;
-    padding: 10px 10px;
-    border-radius: 4px;
-    transition: background 0.9s;
-}
-.log-in-bg{
-   background-image: url(./assets/img/login-bg.jpg);
-    background-size: cover;
-}
-.bg-color-sec {
-    background: #1d1d21a6;
-    padding-bottom: 230px;
-}
-.text-orange {
-    color: #ffa000;
-}
-/* i.fab.fa-linode {
-    margin-right: 10px;
-} */
-.form-control:focus {
-    color: #aeafaf;
-    background-color: #211e1e45;
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
-}
-@media(max-width:767px){
-#username {
-  width: 100%;
-}
-#password {
-  width: 100%;
-}
-.name-type {
-  margin-left: 0;
-}
-}
-</style>
-<body>
-     <section class="log-in log-in-bg">
-         <div class="bg-color-sec">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                     <form class="form-signin" method="post" action="/loginn">
-                        <div class="email-manual">
-                            <h5 class="title text-center login-weight text-orange">User Login</h5>
-                            
-                            <div class="name-type">
-                                 <input type="text" id="username" name="username" class="form-control" placeholder="Mobile Number" required autofocus>
-                            </div>
-                           <div class="password-type name-type">
-                           <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                           </div>
-                           <div class="buttons text-center mg-top">
-                              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                              <br>
-                               <a href="/register" class="reg-btn text-decor btn-decor">SIGN-UP</a>
-                                <a href="/forgestpassword" class="reg-btn text-decor btn-decor">forget password</a> 
-                           </div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-         </div>
+<body class="login-bg">
+
+    <form method="post" action="./login.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTM2Njc0OTk4NmRkUotyJiYWMab6sDbOnSBbRkC1FA+4Bmru1vGxn0qqlcE=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+</div>
        
+    <div>
+    <div class="loader"></div>
+  <div id="app">
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Login</h4>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="#" class="needs-validation" novalidate="">
+                  <div class="form-group">
+                    <label for="email">Track Id</label>
+                      <input name="txttackid" type="text" id="txttackid" tabindex="1" class="form-control" placeholder="Track Id" />
+                 
+                    <div class="invalid-feedback">
+                      Please fill in your email
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="d-block">
+                      <label for="password" class="control-label">Password</label>
+                      <div class="float-right">
+                        <a href="auth-forgot-password.html" class="text-small">
+                          Forgot Password?
+                        </a>
+                      </div>
+                    </div>
+                        <input name="txtpass" type="password" id="txtpass" tabindex="2" class="form-control" placeholder="password" />
+              
+                    <div class="invalid-feedback">
+                      please fill in your password
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
+                      <label class="custom-control-label" for="remember-me">Remember Me</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <input type="submit" name="btnlogin" value="Login" onclick="return userValid();" id="btnlogin" tabindex="4" class="btn btn-primary btn-lg btn-block" />
+                   
+                  </div>
+                </form>
+               
+               
+              </div>
+            </div>
+            <div class="mt-2 text-white text-center">
+              Don't have an account? <a href="register.aspx" class="text-yellow">Create One</a>
+            </div>
+              <div class="mt-2 text-center">
+              <a href="Default.aspx" class="text-yellow"><i class="fa fa-home"></i> Back To Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="login/Assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="login/Assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="login/Assets/js/custom.js"></script>
+    </div>
+    </form>
 </body>
 </html>

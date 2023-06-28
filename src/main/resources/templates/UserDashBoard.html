@@ -1,0 +1,1564 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport" /><title>
+	Member Panel
+</title>
+    <!-- General CSS Files -->
+    <link href="Assets/css/calendarajx.css" rel="stylesheet" /><link href="Assets/css/app.min.css" rel="stylesheet" /><link rel="stylesheet" href="Assets/css/app.min.css" /><link href="Assets/css/datatable-min.css" rel="stylesheet" /><link href="Assets/css/bootstrap4-min.css" rel="stylesheet" /><link rel="stylesheet" href="Assets/bundles/jqvmap/dist/jqvmap.min.css" /><link rel="stylesheet" href="Assets/bundles/weather-icon/css/weather-icons.min.css" /><link href="Assets/bundles/bootstrap-social/bootstrap-social.css" rel="stylesheet" /><link rel="stylesheet" href="Assets/bundles/weather-icon/css/weather-icons-wind.min.css" /><link rel="stylesheet" href="Assets/bundles/summernote/summernote-bs4.css" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="Assets/css/style.css" /><link rel="stylesheet" href="Assets/css/components.css" />
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="Assets/css/custom.css" /><link rel="shortcut icon" type="image/x-icon" href="Assets/img/favicon.ico" />
+    <script src="Assets/js/Jquery3_4_1.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            var pathname = window.location.pathname;
+            $('.sidebar-menu > li > a[href="' + pathname + '"]').parent().addClass('active');
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_endRequest(function () {
+                var pathname = window.location.pathname;
+                $('.sidebar-menu > li > a[href="' + pathname + '"]').parent().addClass('active');
+            });
+        });
+
+    </script>
+    
+
+    
+    
+
+    
+    <style>
+        .table:not(.table-sm):not(.table-md):not(.dataTable) td, .table:not(.table-sm):not(.table-md):not(.dataTable) th {
+            padding: 0 10px;
+            height: 40px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="./Default.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJOTA1MDk1MzM5D2QWAmYPZBYCAgEPZBYOAgEPDxYCHghJbWFnZVVybAUnfi9NZW1iZXIvaW1hZ2VzL0lNRy0yMDIzMDExMS1XQTAwMjEuanBnZGQCAg8WAh4JaW5uZXJodG1sBRJIZWxsbyAgUmFzbWl0YSBEYXNkAgQPFgIfAQULUmFzbWl0YSBEYXNkAgUPFgIfAQUMSUQ6IFRaNDMzMzM4ZAIGDxYCHwEFDEtZQyBBcHByb3ZlZGQCCA9kFkACDQ9kFgQCAQ8PFgIeBFRleHQFBDE1MzhkZAIDDw8WAh8CBQQxMjk0ZGQCDw9kFgQCAQ8PFgIfAgUEMTIyNWRkAgMPDxYCHwIFAzk1MGRkAhEPZBYEAgEPDxYCHwIFATBkZAIDDw8WAh8CBQEwZGQCEw9kFgQCAQ8PFgIfAgUDMzEzZGQCAw8PFgIfAgUDMzQ0ZGQCFQ9kFgQCAQ8PFgIfAgUGMjk2OTQwZGQCAw8PFgIfAgUDNDAwZGQCFw9kFgQCAQ8PFgIfAgUHMTI1Nzk0MGRkAgMPDxYCHwIFBjk2MzQwMGRkAhkPZBYEAgEPDxYCHwIFBjI5Ni45NGRkAgMPDxYCHwIFAzAuNGRkAhsPZBYEAgEPDxYCHwIFBzEyNTcuOTRkZAIDDw8WAh8CBQU5NjMuNGRkAh0PZBYEAgEPDxYCHwIFATBkZAIDDw8WAh8CBQEwZGQCHw9kFgQCAQ8PFgIfAgUCODJkZAIDDw8WAh8CBQMxNDhkZAIhD2QWBAIBDw8WAh8CBQIxM2RkAgMPDxYCHwIFAzEyOGRkAiMPZBYEAgEPDxYCHwIFATBkZAIDDw8WAh8CBQEwZGQCJQ8PFgIfAgUGMjM5ODAwZGQCJw8PFgIfAgUHMTkzODYuMmRkAikPDxYCHwIFATBkZAIrDw8WAh8CBQU0NjAwMGRkAi0PDxYCHwIFATBkZAI3DxYCHwEFCUVYRUNVVElWRWQCOQ9kFgQCAQ8PFgIfAgUELTQwN2RkAgMPDxYCHwIFBC0yOTdkZAI7Dw8WAh8CBQhUWjQzMzMzOGRkAj0PDxYCHwIFC1Jhc21pdGEgRGFzZGQCPw8PFgIfAgUKOTg2MTkxMTA2NWRkAkEPDxYCHwIFGnByYWJoYXRyYW5qYW5kYXNAZ21haWwuY29tZGQCQw8PFgIfAgUUNy8xNi8yMDIyIDE6NDM6NTMgUE1kZAJFDw8WAh8CBQhUWjEyMzQ1NmRkAkcPDxYCHwIFF1RFTlpBIE1BUktFVElORyBQVlQgTFREZGQCSQ8PFgIfAgUUNy8xOS8yMDIyIDQ6MzE6MTUgUE1kZAJLDw8WAh8CBQc1MDAwLjAwZGQCTQ8PFgIfAgUCQU1kZAJVDxYCHgtfIUl0ZW1Db3VudAIBFgJmD2QWAmYPFQUBMQtSYXNtaXRhIERhcwsxOTA3MjI2MjQxOAlDb25maXJtZWQIOSwwMDAuMDBkAlsPFgIfAwIKFhRmD2QWAmYPFQgBMQdBcnRpIFRaCFRaNDczMzkyCFRaOTgxMjY0EmJhZGdlIGJhZGdlLWRhbmdlcghJbmFjdGl2ZRQxMi84LzIwMjIgMTo0ODoxMyBQTQBkAgEPZBYCZg8VCAEyB1JlbnUgVFoIVFo5ODEyNjQIVFo2NDMwMzQSYmFkZ2UgYmFkZ2UtZGFuZ2VyCEluYWN0aXZlFDEyLzgvMjAyMiAxOjQ3OjAyIFBNAGQCAg9kFgJmDxUIATMJSXNuZWhhIFRaCFRaNjQzMDM0CFRaODYwNjA3EmJhZGdlIGJhZGdlLWRhbmdlcghJbmFjdGl2ZRQxMi84LzIwMjIgMTo0NTo0NCBQTQBkAgMPZBYCZg8VCAE0B05laGEgVFoIVFo4NjA2MDcIVFozMDIwNjUSYmFkZ2UgYmFkZ2UtZGFuZ2VyCEluYWN0aXZlFDEyLzgvMjAyMiAxOjQ0OjE0IFBNAGQCBA9kFgJmDxUIATUHUnVieSBUWghUWjMwMjA2NQhUWjc3MDg3MBJiYWRnZSBiYWRnZS1kYW5nZXIISW5hY3RpdmUUMTIvOC8yMDIyIDE6NDI6NDkgUE0AZAIFD2QWAmYPFQgBNglEZWVwYWsgVFoIVFo3NzA4NzAIVFo4OTM1MDESYmFkZ2UgYmFkZ2UtZGFuZ2VyCEluYWN0aXZlFDEyLzgvMjAyMiAxOjQxOjI4IFBNAGQCBg9kFgJmDxUIATcHQWpheSBUWghUWjg5MzUwMQhUWjA1ODc1NhJiYWRnZSBiYWRnZS1kYW5nZXIISW5hY3RpdmUUMTIvOC8yMDIyIDE6NDA6MDQgUE0AZAIHD2QWAmYPFQgBOAhLb21hbCBUWghUWjA1ODc1NghUWjc5NjUyMBJiYWRnZSBiYWRnZS1kYW5nZXIISW5hY3RpdmUUMTIvOC8yMDIyIDE6Mzg6NTUgUE0AZAIID2QWAmYPFQgBOQhUYXJ1biBUWghUWjc5NjUyMAhUWjgwMjQxNRJiYWRnZSBiYWRnZS1kYW5nZXIISW5hY3RpdmUUMTIvOC8yMDIyIDE6Mzc6MzcgUE0AZAIJD2QWAmYPFQgCMTAKSmF5YmhhbiBUWghUWjgwMjQxNQhUWjA1NDIwNRJiYWRnZSBiYWRnZS1kYW5nZXIISW5hY3RpdmUUMTIvOC8yMDIyIDE6MzU6NTQgUE0AZAJdDxYCHwMCBRYKZg9kFgJmDxUFIlJlZmVycmFsIExldmVsIGJvbnVzIEZyb20gVFoxOTMwODELUmFzbWl0YSBEYXMdZmFzIGZhLWNpcmNsZSBjb2wtZ3JlZW4gbS1yLTUCQ3IENC4wMGQCAQ9kFgJmDxUFIlJlZmVycmFsIExldmVsIGJvbnVzIEZyb20gVFo5ODkyMTkLUmFzbWl0YSBEYXMdZmFzIGZhLWNpcmNsZSBjb2wtZ3JlZW4gbS1yLTUCQ3IEMC40MGQCAg9kFgJmDxUFL1NhbGVzIFBlcmZvbWFuY2UgQm9udXMgTC1Qb2ludDMwMDk0MFItUG9pbnQ0MjYwC1Jhc21pdGEgRGFzHWZhcyBmYS1jaXJjbGUgY29sLWdyZWVuIG0tci01AkNyCDEsNjAwLjAwZAIDD2QWAmYPFQUvU2FsZXMgUGVyZm9tYW5jZSBCb251cyBMLVBvaW50MzA1OTQwUi1Qb2ludDUyNjALUmFzbWl0YSBEYXMdZmFzIGZhLWNpcmNsZSBjb2wtZ3JlZW4gbS1yLTUCQ3IIMiwwMDAuMDBkAgQPZBYCZg8VBS9TYWxlcyBQZXJmb21hbmNlIEJvbnVzIEwtUG9pbnQzMDY5NDBSLVBvaW50MTAxMAtSYXNtaXRhIERhcx1mYXMgZmEtY2lyY2xlIGNvbC1ncmVlbiBtLXItNQJDcgY0MDAuMDBkAgkPDxYCHwIFFENvcHlyaWdodCBAIDIwMjMgQnkgZGRkSXUDK/1TYn3UVFG/45rEHP5X0T2038+GkoQrIJd1NJU=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2765C009" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAALYkGkEybaGLEK2gkdCB2h5gUFlgNU1eucH/1aaMMUqPoPqINKSRPmBB8PE9MsTJjW44Yi3feN/oSjSiEKO8gSG" />
+</div>
+
+        <div class="loader"></div>
+        <div class="main-wrapper main-wrapper-1" style="background-color: #e4e3e3">
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"><i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                            <i data-feather="maximize"></i>
+                        </a></li>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                        class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
+                        <span class="badge headerBadge1">6 </span></a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Messages
+                <div class="float-right">
+                    <a href="#">Mark All As Read</a>
+                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-message">
+                                
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                        <img id="imgUser" class="user-img-radious-style" src="images/IMG-20230111-WA0021.jpg" />
+
+                        <span class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div id="DivDropName" class="dropdown-title">Hello  Rasmita Das</div>
+
+                            <a href="profile.aspx" class="dropdown-item has-icon"><i class="fa fa-user"></i>Profile</a>
+                            <a href="ChangePassword.aspx" class="dropdown-item has-icon"><i class="fa fa-key"></i>Password(s)</a>
+                            <a href="AddBank.aspx" class="dropdown-item has-icon"><i class="fa fa-university"></i>Bank Details</a>
+                            <a href="KYC.aspx" class="dropdown-item has-icon"><i class="fa fa-file"></i>KYC</a>
+                            <a href="WelcomeLetter.aspx" class="dropdown-item has-icon"><i class="fa fa-file-pdf"></i>Welcome Letter</a>
+                            <a href='../Invoice.aspx?invoiceid=Oqzbvpd79kays5CaVnpqP YWGp3KmXi0PXmomaRpp8Y=' target="_blank" class="dropdown-item has-icon"><i class="fa fa-print"></i>Print Reciept</a>
+
+                            <a href="#" class="dropdown-item has-icon"><i class="fa fa-id-card"></i>ID Card</a>
+                            <a href="#" class="dropdown-item has-icon"><i class="fa fa-cog"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../login.aspx" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="../Default.aspx">
+                            <img src="../login/Assets/img/products/logo.png" id="imglogo" alt="image" class="header-logo" />
+                            
+                          
+                        </a>
+                    </div>
+                    <div class="sidebar-user">
+
+                        <div class="sidebar-user-details">
+                            <div id="DivUserName" class="user-name" style="color: white;">Rasmita Das</div>
+                            <div id="DivRole" class="user-role">ID: TZ433338</div>
+                            <div id="divkycstatus" class="user-role">KYC Approved</div>
+
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Main</li>
+                        <li class="dropdown">
+                            <a href="Default.aspx" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="../Registration.aspx" class="nav-link"><i data-feather="monitor"></i><span>New Registration</span></a>
+
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="user"></i><span>Profile</span></a>
+                            <ul class="dropdown-menu">
+                                
+                                
+
+                                
+                                <li><a class="nav-link" href="profile.aspx">Profile</a></li>
+                                <li><a href="ChangePassword.aspx" class="link-page">Change Password</a></li>
+                                <li><a class="nav-link" href="KYC.aspx">KYC</a></li>
+                                <li><a class="nav-link" href="AddBank.aspx">Bank Details</a></li>
+                                <li><a href="Card.aspx" class="link-page">ID Card</a></li>
+                                <li><a class="nav-link" href="WelcomeLetter.aspx">Welcome Letter</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="dollar-sign"></i><span>Fund Management</span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="nav-link" href="AddFund.aspx">Add Fund</a></li>
+                                
+                                <li><a class="nav-link" href="RequestFund.aspx">Requested Fund</a></li>
+
+
+                                <li><a class="nav-link" href="FundHistory.aspx">Fund  History</a></li>
+                                <li><a class="nav-link" href="RankUpgrade.aspx">Upgrade Rank</a></li>
+                            </ul>
+                        </li>
+                        
+
+                        
+                        
+                        
+                        
+                        
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="slack"></i><span>My Network</span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="nav-link" href="MyDirects.aspx">My Direct</a></li>
+                                <li><a class="nav-link" href="GenealogyLeftDownline.aspx">Left Downline</a></li>
+                                <li><a class="nav-link" href="GenealogyRightDownline.aspx">Right Downline</a></li>
+                                <li><a class="nav-link" href="TreeDetails.aspx">Generation Report</a></li>
+                                <li><a class="nav-link" href="ReferLevelReport.aspx">Refer Level Report</a></li>
+                               
+                                <li><a class="nav-link" href="MemberTree.aspx">Member Tree</a></li>
+                                <li><a class="nav-link" href="BusinessReport.aspx">Business Report</a></li>
+                                <li><a class="nav-link" href="MonthLyBusinessReport.aspx">Monthly Business Report</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="briefcase"></i><span>My Income</span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="nav-link" href="TransactionReport.aspx?type=Bonus Income">Performance Bonus</a></li>
+                                <li><a class="nav-link" href="TransactionReport.aspx?type=Perfomance Bonus">Sales Performance Bonus</a></li>
+                        
+                                <li><a class="nav-link" href="TransactionReport.aspx?type=Referral Level Bonus">Referral Level Bonus</a></li>
+                              
+                           
+                                </ul>
+                        </li>
+                      
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <a href="../products.aspx" class="nav-link"><i data-feather="gift"></i><span>Shopping</span></a>
+                            
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="gift"></i><span>Order List</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="InvoiceList.aspx">Order List</a></li>
+                                <li><a class="nav-link" href="PendingOrderList.aspx">Pending Order List</a></li>
+                            </ul>
+                        </li>
+
+                        
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="gift"></i><span>Withdrawal</span></a>
+                            <ul class="dropdown-menu">
+
+                                
+                                <li><a class="nav-link" href="Payout.aspx">Withdraw Report</a></li>
+                                <li><a class="nav-link" href="MonthlyTdsReport.aspx">Monthly TDS</a></li>
+
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i data-feather="settings"></i><span>Support</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="RaiseTicket.aspx">New Ticket</a></li>                              
+                                <li><a class="nav-link" href="UserRaisedTicket.aspx">Ticket Report</a></li>
+                                <li><a class="nav-link" href="TicketCompleted.aspx">Ticket Completed</a></li>
+                            </ul>
+                        </li>
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <a id="LinkButton1" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)">
+                                   <i class="fa fa-sign-out"></i> Log Out
+                            </a>
+                        </li>
+                    
+                        
+                        
+                        
+                    </ul>
+                </aside>
+                
+            </div>
+                  
+    <!-- Main Content -->
+    <div class="main-content">
+        <section class="section">
+            <div class="row ">
+                <div class="col-xl-3 col-lg-6" style="display: none;">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-award"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">Wallet</h4>
+                                <span id="ContentPlaceHolder1_spnEwallet">0.00</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-purple" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6" style="display: none;">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-award"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Rank</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_spnRank"></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-purple" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6" style="display: none;">
+                    <div class="card l-bg-cyan-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-briefcase"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Shopping Wallet</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_spnfundwallet">0.00</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6" style="display: none;">
+                    <div class="card l-bg-cyan-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-briefcase"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6><small>Last month BV</small></h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span1">L&nbsp;<span id="ContentPlaceHolder1_lblLeftBv"></span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; R&nbsp;<span id="ContentPlaceHolder1_lblRightBv"></span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6" style="display: none;">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-globe"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Withdrawal</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_spnwithdrawal">0.00</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6" style="display: none;">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-briefcase"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6><small>Next Reward Needed Poins</small></h6>
+                                </h4>
+                                
+
+                                <span id="ContentPlaceHolder1_nxtrewardremainingpoints">0</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Total Team</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span2">Left&nbsp;<span id="ContentPlaceHolder1_LeftTotalTeam">1538</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_RightTotalTeam">1294</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Active Team</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span3">Left&nbsp;<span id="ContentPlaceHolder1_leftactiveteam">1225</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_rightactiveteam">950</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 d-none">
+                    <div class="card l-bg-cyan-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Ugrade Team</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span4">Left&nbsp;<span id="ContentPlaceHolder1_Upgradeleftteam">0</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_UpgradeRightTeam">0</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>InActive Team</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span5">Left&nbsp;<span id="ContentPlaceHolder1_leftinactiveteam">313</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_rightinactiveteam">344</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Current BV</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span6">Left&nbsp;<span id="ContentPlaceHolder1_Currentleftteambv">296940</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_Currentrightteambv">400</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Total BV</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span7">Left&nbsp;<span id="ContentPlaceHolder1_TotalLeftTeamBV">1257940</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_TotalRightTeamBv">963400</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-cyan-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Current SP</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span8">Current&nbsp;<span id="ContentPlaceHolder1_curmonthrbv">296.94</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Previous&nbsp;<span id="ContentPlaceHolder1_prevmonthrbv">0.4</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Total SP</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span9">Left&nbsp;<span id="ContentPlaceHolder1_currentleftteamrbv">1257.94</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_currentrightteamrbv">963.4</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6" style="display:none;">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Total Team RBV</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span10">Left&nbsp;<span id="ContentPlaceHolder1_totalteamleftrbv">0</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_totalteamrightrbv">0</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Direct Team</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span11">Left&nbsp;<span id="ContentPlaceHolder1_leftdirectmember">82</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_rightdirectteam">148</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Direct Active Team</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span12">Left&nbsp;<span id="ContentPlaceHolder1_leftactivedirectteam">13</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_rightactivedirectteam">128</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+                
+                <div class="col-xl-3 col-lg-6" style="display:none;">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Current Team SP</h6>
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span13">Left&nbsp;<span id="ContentPlaceHolder1_currleftsp">0</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_currrghtsp">0</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                
+                <div class="col-xl-3 col-lg-6 ">
+                    <div class="card l-bg-cyan-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Sales Performance Bonus</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_lblsalesbonus">239800</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Referal Level Bonus</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_lblreferalbonus">19386.2</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6" style="display:none;">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Repurchase Bonus</h6>
+                                </h4>
+                              
+                               <span id="ContentPlaceHolder1_lblrepurchasebonus">0</span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 ">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Performance Bonus</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_lblperformancebonus">46000</span> 
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="col-xl-3 col-lg-6" style="display:none;">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Partnership Bonus</h6>
+                                </h4>
+                              <span id="ContentPlaceHolder1_lblpartnerbonus">0</span> 
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-xl-3 col-lg-6 d-none">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Add Fund</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_Label1">0</span> 
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 d-none">
+                    <div class="card l-bg-cyan-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>House Fund</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_Label2">0</span> 
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 d-none">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Car Fund</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_Label3">0</span> 
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 d-none">
+                    <div class="card l-bg-purple-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Travel Fund</h6>
+                                </h4>
+                               <span id="ContentPlaceHolder1_Label4">0</span> 
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 d-none">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3">
+                            <div class="card-icon card-icon-large"><i class="fa fa-money-bill-alt"></i></div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <h6>Next Rank  &nbsp;<span id="ContentPlaceHolder1_rankname">EXECUTIVE</span></h6>  
+                                </h4>
+                                <span id="ContentPlaceHolder1_Span14">Left&nbsp;<span id="ContentPlaceHolder1_LeftSp">-407</span>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Right&nbsp;<span id="ContentPlaceHolder1_RightSp">-297</span></span>
+                                <div class="progress mt-1 mb-1" data-height="8">
+                                    <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>User Detials</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped _clstablerow">
+                                    <tr>
+                                        <th>User Id  </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblUserId">TZ433338</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Name   </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblNameId">Rasmita Das</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Mobile  </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblMobileId">9861911065</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Email Id   </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblEmailId">prabhatranjandas@gmail.com</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>D.O.J   </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblDOB">7/16/2022 1:43:53 PM</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sponsor ID  </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblsponsorid">TZ123456</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sponsor Name  </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblsponsorname">TENZA MARKETING PVT LTD</span></th>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <th>Activation Date  </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblactivationdate">7/19/2022 4:31:15 PM</span></th>
+                                    </tr>
+                                    <tr style="display:none">
+                                        <th>Package </th>
+                                        <th style="width: 35%;">
+                                            <span id="ContentPlaceHolder1__lblpackage">5000.00</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Rank
+                                        </th>
+                                        <th>
+                                            <span id="ContentPlaceHolder1__lblDegisnation">AM</span>
+                                        </th>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Latest Offers</h4>
+                        </div>
+                        <marquee behavior="scroll" scrollamount="5" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                   
+                         </marquee>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Latest News</h4>
+                        </div>
+                        <marquee behavior="scroll" scrollamount="5" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                   
+                         </marquee>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Recent Orders</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>S.No   </th>
+                                        <th style="width: 35%;">Cust Name</th>
+                                        <th style="width: 35%;">Invoice No</th>
+                                        <th style="width: 35%;">Status</th>
+                                        <th>Amount</th>
+                                        <th>Details</th>
+                                    </tr>
+                                    
+                                    
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <div class="media">
+                                                        <img alt="image" class="mr-3 rounded-circle" width="40" src="assets/img/users/user-1.png">
+                                                        <div class="media-body">
+                                                            <div class="media-title">Rasmita Das</div>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>19072262418</td>
+                                                <td class="align-middle">
+                                                    <div class="progress-text">Confirmed</div>
+                                                </td>
+                                                <td>9,000.00</td>
+                                                <td>
+                                                    <div class="media-cta">
+                                                        <a href="#" class="btn btn-outline-primary">Detail</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Pending Orders</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>S.No   </th>
+                                        <th style="width: 35%;">Cust Name</th>
+                                        <th style="width: 35%;">Order date</th>
+                                        <th style="width: 35%;">Status</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                    
+                                    
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Direct Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-invoice">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Name</th>
+                                        <th>Trackid</th>
+                                        <th>Parentid</th>
+                                        <th>Status</th>
+                                        <th>Insert Date</th>
+                                        <th>Activation Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        1
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Arti TZ</a></td>
+                                                <td class="font-weight-600">TZ473392</td>
+                                                <td class="font-weight-600">TZ981264</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:48:13 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        2
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Renu TZ</a></td>
+                                                <td class="font-weight-600">TZ981264</td>
+                                                <td class="font-weight-600">TZ643034</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:47:02 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        3
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Isneha TZ</a></td>
+                                                <td class="font-weight-600">TZ643034</td>
+                                                <td class="font-weight-600">TZ860607</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:45:44 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        4
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Neha TZ</a></td>
+                                                <td class="font-weight-600">TZ860607</td>
+                                                <td class="font-weight-600">TZ302065</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:44:14 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        5
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Ruby TZ</a></td>
+                                                <td class="font-weight-600">TZ302065</td>
+                                                <td class="font-weight-600">TZ770870</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:42:49 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        6
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Deepak TZ</a></td>
+                                                <td class="font-weight-600">TZ770870</td>
+                                                <td class="font-weight-600">TZ893501</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:41:28 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        7
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Ajay TZ</a></td>
+                                                <td class="font-weight-600">TZ893501</td>
+                                                <td class="font-weight-600">TZ058756</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:40:04 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        8
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Komal TZ</a></td>
+                                                <td class="font-weight-600">TZ058756</td>
+                                                <td class="font-weight-600">TZ796520</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:38:55 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        9
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Tarun TZ</a></td>
+                                                <td class="font-weight-600">TZ796520</td>
+                                                <td class="font-weight-600">TZ802415</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:37:37 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td class="p-0 text-center">
+                                                    <div class="custom-checkbox custom-control">
+                                                        10
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Jaybhan TZ</a></td>
+                                                <td class="font-weight-600">TZ802415</td>
+                                                <td class="font-weight-600">TZ054205</td>
+                                                <td class="align-middle">
+                                                    <div class="badge badge-danger">Inactive</div>
+                                                    
+                          
+                          
+                                                </td>
+                                                <td>12/8/2022 1:35:54 PM</td>
+                                                <td></td>
+                                                <td><a href="MyDirects.aspx" class="btn btn-primary">Details</a> </td>
+                                            </tr>
+                                        
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: none;">
+                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chart-title">
+                                <p class="mb-3 text-muted pull-left text-sm">
+                                    <span class="text-success mr-2 font-20"><i class="fa fa-arrow-up"></i>
+                                        10%</span> <span class="text-nowrap">Since
+                        last month</span>
+                                </p>
+                            </div>
+                            <canvas id="chart-1"></canvas>
+                            <div class="row text-center">
+                                <div class="col-4 m-t-15">
+                                    <h5>91%</h5>
+                                    <p class="text-muted m-b-0">Online</p>
+                                </div>
+                                <div class="col-4 m-t-15">
+                                    <h5>8%</h5>
+                                    <p class="text-muted m-b-0">Offline</p>
+                                </div>
+                                <div class="col-4 m-t-15">
+                                    <h5>1%</h5>
+                                    <p class="text-muted m-b-0">NA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Latest Transactions</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table dataTable table-striped">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Description</th>
+                                        <th>Cust Name</th>
+                                        <th>Cr/Dr</th>
+                                        <th>Amount</th>
+                                        <th>View All</th>
+                                    </tr>
+                                    
+                                            <tr>
+                                                <td>
+                                                    <img alt="image" src="assets/img/users/user-8.png" width="35">
+                                                </td>
+                                                <td>Referral Level bonus From TZ193081</td>
+                                                <td>Rasmita Das</td>
+                                                <td><i class="fas fa-circle col-green m-r-5"></i>Cr</td>
+                                                <td>4.00</td>
+                                                <td>
+                                                    <a href="TransactionReport.aspx" class="btn btn-primary">Details</a>
+                                                </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <img alt="image" src="assets/img/users/user-8.png" width="35">
+                                                </td>
+                                                <td>Referral Level bonus From TZ989219</td>
+                                                <td>Rasmita Das</td>
+                                                <td><i class="fas fa-circle col-green m-r-5"></i>Cr</td>
+                                                <td>0.40</td>
+                                                <td>
+                                                    <a href="TransactionReport.aspx" class="btn btn-primary">Details</a>
+                                                </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <img alt="image" src="assets/img/users/user-8.png" width="35">
+                                                </td>
+                                                <td>Sales Perfomance Bonus L-Point300940R-Point4260</td>
+                                                <td>Rasmita Das</td>
+                                                <td><i class="fas fa-circle col-green m-r-5"></i>Cr</td>
+                                                <td>1,600.00</td>
+                                                <td>
+                                                    <a href="TransactionReport.aspx" class="btn btn-primary">Details</a>
+                                                </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <img alt="image" src="assets/img/users/user-8.png" width="35">
+                                                </td>
+                                                <td>Sales Perfomance Bonus L-Point305940R-Point5260</td>
+                                                <td>Rasmita Das</td>
+                                                <td><i class="fas fa-circle col-green m-r-5"></i>Cr</td>
+                                                <td>2,000.00</td>
+                                                <td>
+                                                    <a href="TransactionReport.aspx" class="btn btn-primary">Details</a>
+                                                </td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <img alt="image" src="assets/img/users/user-8.png" width="35">
+                                                </td>
+                                                <td>Sales Perfomance Bonus L-Point306940R-Point1010</td>
+                                                <td>Rasmita Das</td>
+                                                <td><i class="fas fa-circle col-green m-r-5"></i>Cr</td>
+                                                <td>400.00</td>
+                                                <td>
+                                                    <a href="TransactionReport.aspx" class="btn btn-primary">Details</a>
+                                                </td>
+                                            </tr>
+                                        
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="settingSidebar">
+            <a href="javascript:void(0)" class="settingPanelToggle"><i class="fa fa-spin fa-cog"></i>
+            </a>
+            <div class="settingSidebar-body ps-container ps-theme-default">
+                <div class=" fade show active">
+                    <div class="setting-panel-header">
+                        Setting Panel
+                    </div>
+                    <div class="p-15 border-bottom">
+                        <h6 class="font-medium m-b-10">Select Layout</h6>
+                        <div class="selectgroup layout-color w-50">
+                            <label class="selectgroup-item">
+                                <input type="radio" name="value" value="1" class="selectgroup-input select-layout" checked>
+                                <span class="selectgroup-button">Light</span>
+                            </label>
+                            <label class="selectgroup-item">
+                                <input type="radio" name="value" value="2" class="selectgroup-input select-layout">
+                                <span class="selectgroup-button">Dark</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="p-15 border-bottom">
+                        <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                        <div class="selectgroup selectgroup-pills sidebar-color">
+                            <label class="selectgroup-item">
+                                <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                                <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                    data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                            </label>
+                            <label class="selectgroup-item">
+                                <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                                <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                    data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="p-15 border-bottom">
+                        <h6 class="font-medium m-b-10">Color Theme</h6>
+                        <div class="theme-setting-options">
+                            <ul class="choose-theme list-unstyled mb-0">
+                                <li title="white" class="active">
+                                    <div class="white"></div>
+                                </li>
+                                <li title="cyan">
+                                    <div class="cyan"></div>
+                                </li>
+                                <li title="black">
+                                    <div class="black"></div>
+                                </li>
+                                <li title="purple">
+                                    <div class="purple"></div>
+                                </li>
+                                <li title="orange">
+                                    <div class="orange"></div>
+                                </li>
+                                <li title="green">
+                                    <div class="green"></div>
+                                </li>
+                                <li title="red">
+                                    <div class="red"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-15 border-bottom">
+                        <div class="theme-setting-options">
+                            <label>
+                                <span class="control-label p-r-20">Mini Sidebar</span>
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                    id="mini_sidebar_setting">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="p-15 border-bottom">
+                        <div class="theme-setting-options">
+                            <div class="disk-server-setting m-b-20">
+                                <p>Disk Space</p>
+                                <div class="sidebar-progress">
+                                    <div class="progress" data-height="5">
+                                        <div class="progress-bar l-bg-green" role="progressbar" data-width="80%" aria-valuenow="80"
+                                            aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    <span class="progress-description">
+                                        <small>26% remaining</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="disk-server-setting">
+                                <p>Server Load</p>
+                                <div class="sidebar-progress">
+                                    <div class="progress" data-height="5">
+                                        <div class="progress-bar l-bg-orange" role="progressbar" data-width="58%" aria-valuenow="25"
+                                            aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    <span class="progress-description">
+                                        <small>Highly Loaded</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                        <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                            <i class="fas fa-undo"></i>Restore Default
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <span id="lblFooterText">Copyright @ 2023 By </span>
+                    </div>
+                    
+                    <div class="footer-right">
+                    </div>
+                    </div>
+            </footer>
+            <script src="Assets/js/app.min.js"></script>
+            <!-- JS Libraies -->
+            <script src="Assets/bundles/echart/echarts.js"></script>
+            <script src="Assets/bundles/chartjs/chart.min.js"></script>
+            <!-- Page Specific JS File -->
+            <script src="Assets/js/page/index.js"></script>
+            <!-- Template JS File -->
+            <script src="Assets/js/scripts.js"></script>
+            <!-- Custom JS File -->
+            <script src="Assets/js/custom.js"></script>
+            <!-- General JS Scripts -->
+
+            <!-- JS Libraies -->
+            <!-- Page Specific JS File -->
+            <script src="Assets/bundles/datatables/datatables.min.js"></script>
+            <script src="Assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+            <script src="Assets/bundles/datatables/export-tables/dataTables.buttons.min.js"></script>
+            <script src="Assets/bundles/datatables/export-tables/buttons.flash.min.js"></script>
+            <script src="Assets/bundles/datatables/export-tables/jszip.min.js"></script>
+            <script src="Assets/bundles/datatables/export-tables/pdfmake.min.js"></script>
+            <script src="Assets/bundles/datatables/export-tables/vfs_fonts.js"></script>
+
+            <script src="Assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
+            <script src="Assets/js/page/datatables.js"></script>
+
+
+
+            <script type="application/javascript">
+                $(document).ready(function () {
+
+                    $(function () {
+                        $('.categoryimgpop').on('click', function () {
+                            $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                            $('#imagemodal').modal('show');
+                        });
+
+                        $('[data-toggle="tooltip"]').tooltip()
+                    });
+
+                    var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+                    prm.add_endRequest(function () {
+                        $(function () {
+                            $('.categoryimgpop').on('click', function () {
+                                $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                                $('#imagemodal').modal('show');
+                            });
+
+                            $('[data-toggle="tooltip"]').tooltip()
+                        });
+                    });
+                });
+            </script>
+        </div>
+    </form>
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" data-dismiss="modal">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 0px; border-bottom: 0px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <div class="modal-body text-center" style="padding-top: 0px;">
+                    <img class="imagepreview" style="max-width: 100%;" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/css/js/select2.full.min.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('.select2').select2();
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_endRequest(function () {
+                $('.select2').select2();
+            });
+        });
+    </script>
+
+</body>
+</html>

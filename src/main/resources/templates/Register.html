@@ -106,7 +106,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ToolkitSc
                                                     </div>
                                                     <div class="form-group col-12 col-sm-6">
                                                         <label for="frist_name">Full Name<span id="ContentPlaceHolder1_spnFullName" class="Mandate">&nbsp;*</span><span id="ContentPlaceHolder1_errorfullname"></span></label>
-                                                        <input name="ctl00$ContentPlaceHolder1$txtname" type="text" maxlength="100" id="ContentPlaceHolder1_txtname" autocomplete="new username" class="form-control" placeholder="Full Name" onkeypress="return character(event);" />
+                                                        <input name="fullname" th:field="*{fullName}" type="text" maxlength="100"  autocomplete="new username" class="form-control" placeholder="Full Name"  />
                                                         
                                                         <span id="ContentPlaceHolder1_RequiredFieldValidator1" style="color:Red;visibility:hidden;">Name is Required</span>
 

@@ -15,9 +15,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "role")
 
+@Table(name = "role")
+@Entity
 public class Role {
 	  public Long getId() {
 		return id;

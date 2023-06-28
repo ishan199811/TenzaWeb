@@ -58,22 +58,6 @@ public class UserController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 
-	@RequestMapping("/register")
-	public String schedulepage(Model model) {
-		//("......................................hellopage");
-		model.addAttribute("user", new UserDTO());
-
-		return "Register";
-
-	}
-	@RequestMapping("/register2")
-	public String schedulepage2(Model model) {
-		//("......................................hellopage");
-		model.addAttribute("user", new UserDTO());
-
-		return "Register2";
-
-	}
 	
 	@RequestMapping("/sponseredId")
 	public String schedulRegister(Model model) {
@@ -85,7 +69,7 @@ public class UserController {
 	}
 	
 
-	@PostMapping("/registrations")
+	@PostMapping("/registra")
 	public String savee(@ModelAttribute("user") UserDTO userDto, BindingResult bindingResult ,Model model) throws Exception {
 		if (bindingResult.hasErrors()) {
 			//("Error" + bindingResult);
