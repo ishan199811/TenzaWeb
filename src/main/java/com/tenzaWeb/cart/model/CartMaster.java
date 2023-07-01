@@ -14,7 +14,7 @@ import javax.persistence.OrderColumn;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.tenzaWeb.product.model.entity.Product;
-import com.tenzaWeb.user.model.User;
+import com.tenzaWeb.security.model.entity.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,11 +36,11 @@ public class CartMaster {
 	public void setCartId(long cartId) {
 		this.cartId = cartId;
 	}
-	public User getUserId() {
-		return userId;
+	public User getLoginId() {
+		return loginId;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setLoginId(User loginId) {
+		this.loginId = loginId;
 	}
 	public Product getProduct() {
 		return product;
@@ -62,8 +62,8 @@ public class CartMaster {
 	private long cartId;
 	
 	 @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-	    @JoinColumn(nullable = false, name = "userId")
-    private User userId;
+	    @JoinColumn(nullable = false, name = "loginId")
+    private User loginId;
 
 	
 	@ManyToOne(fetch = FetchType.EAGER)

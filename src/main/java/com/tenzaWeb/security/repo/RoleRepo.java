@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.tenzaWeb.security.model.entity.Role;
 @Repository
-public interface RoleRepo extends JpaRepository<Long , Role> {
+public interface RoleRepo extends JpaRepository<Role , Long> {
 
-	Role findByName(String string);
+	Role findByRoleName(String string);
 
 }

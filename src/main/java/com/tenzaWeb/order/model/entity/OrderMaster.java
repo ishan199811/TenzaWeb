@@ -16,10 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.tenzaWeb.address.model.entity.Address;
+//import com.tenzaWeb.address.model.entity.Address;
 import com.tenzaWeb.product.model.entity.Brand;
-import com.tenzaWeb.user.model.User;
-
+import com.tenzaWeb.security.model.entity.User;
 
 import lombok.Data;
 
@@ -67,13 +66,13 @@ public class OrderMaster {
 		this.user = user;
 	}
 
-	public Address getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(Address addressId) {
-		this.addressId = addressId;
-	}
+//	public Address getAddressId() {
+//		return addressId;
+//	}
+//
+//	public void setAddressId(Address addressId) {
+//		this.addressId = addressId;
+//	}
 
 	public Date getCreatedDate() {
 		return createdDate;
@@ -101,11 +100,11 @@ public class OrderMaster {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
  User user;
-	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "address_id", nullable = false)
-	private Address addressId;
+//	
+//	@JsonIgnore
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "address_id", nullable = false)
+//	private Address addressId;
 
 	public void setCreatedDate(Date date) {
 		// TODO Auto-generated method stub

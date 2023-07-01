@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.tenzaWeb.security.model.entity.Refrence;
 @Repository
-public interface RefrenceRepo extends JpaRepository<Long, Refrence>{
+public interface RefrenceRepo extends JpaRepository<Refrence,Long>{
 
-	void save(Refrence reff);
+	public Refrence save(Refrence reff);
 
 }

@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tenzaWeb.user.model.User;
-import com.tenzaWeb.user.service.SecurityService;
-import com.tenzaWeb.user.service.impl.UserServiceImpl;
+import com.tenzaWeb.security.serviceImpl.SecurityServiceimpl;
+import com.tenzaWeb.security.serviceImpl.UserServiceImpl;
 import com.tenzaWeb.userNode.model.entity.Node;
 import com.tenzaWeb.userNode.service.NodeService;
 
@@ -24,7 +23,7 @@ public class NodeController {
 NodeService nodeService;
 
 @Autowired
-SecurityService sc;
+SecurityServiceimpl sc;
 
 @Autowired
 UserServiceImpl us;

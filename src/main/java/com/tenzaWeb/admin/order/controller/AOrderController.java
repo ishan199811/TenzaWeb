@@ -16,20 +16,20 @@ import com.tenzaWeb.order.service.OrderMasterService;
 
 public class AOrderController {
 
-
-@Autowired
-OrderMasterService orderService;
-
-
-@RequestMapping("/all_order_list.html")
-public String getAllOrders(Model model) {
-	
-	List<OrderMaster> orders=orderService.getAllOrders();
-	model.addAttribute("orders",orders);
-	return "admin/all_order_list.html";
-}
-
-
+//
+//@Autowired
+//OrderMasterService orderService;
+//
+//
+//@RequestMapping("/all_order_list.html")
+//public String getAllOrders(Model model) {
+//	
+//	List<OrderMaster> orders=orderService.getAllOrders();
+//	model.addAttribute("orders",orders);
+//	return "admin/all_order_list.html";
+//}
+//
+//
 
 
 

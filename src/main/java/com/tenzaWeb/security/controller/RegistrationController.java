@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tenzaWeb.security.model.dto.UserDto;
 import com.tenzaWeb.security.service.UserService;
 import com.tenzaWeb.security.util.AuthUtil;
-import com.tenzaWeb.user.model.request.UserDTO;
+
 
 
 

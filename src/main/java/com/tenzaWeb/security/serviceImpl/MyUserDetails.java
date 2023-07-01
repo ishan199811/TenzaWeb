@@ -8,15 +8,19 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import com.tenzaWeb.security.model.entity.Role;
 import com.tenzaWeb.security.model.entity.User;
 
 
 
+
 public class MyUserDetails implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
+	
+	
 	private User user;
     
     public MyUserDetails(User user) {

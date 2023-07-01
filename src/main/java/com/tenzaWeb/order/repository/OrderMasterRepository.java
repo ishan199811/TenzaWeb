@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tenzaWeb.address.model.entity.Address;
+
 import com.tenzaWeb.order.model.entity.OrderMaster;
-import com.tenzaWeb.user.model.User;
+import com.tenzaWeb.security.model.entity.User;
+
 
 
 

@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.tenzaWeb.product.model.entity.Brand;
-import com.tenzaWeb.user.model.User;
+
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

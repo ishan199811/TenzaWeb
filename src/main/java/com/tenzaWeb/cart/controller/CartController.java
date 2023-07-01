@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tenzaWeb.address.model.entity.Address;
-import com.tenzaWeb.address.service.AdderessService;
+
 import com.tenzaWeb.cart.model.CartMaster;
 import com.tenzaWeb.cart.model.request.AddToCartDTO;
 import com.tenzaWeb.cart.model.request.CartDTO;
@@ -24,9 +23,9 @@ import com.tenzaWeb.cart.service.CartService;
 import com.tenzaWeb.product.model.entity.Product;
 import com.tenzaWeb.product.service.CatagoryService;
 import com.tenzaWeb.product.service.ProductService;
-import com.tenzaWeb.user.model.User;
-import com.tenzaWeb.user.service.SecurityService;
-import com.tenzaWeb.user.service.UserService;
+import com.tenzaWeb.security.model.entity.User;
+import com.tenzaWeb.security.service.SecurityService;
+import com.tenzaWeb.security.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,8 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CartController {
 	@Autowired
 	CatagoryService catagoryService;
-@Autowired
-AdderessService addService;
+
 	@Autowired
 	private CartService service;
 
@@ -62,7 +60,7 @@ AdderessService addService;
 
 		Product product = productservice.getProductByProductId(productId);
 		CartMaster cart = new CartMaster();
-		cart.setUserId(user);
+		cart.setLoginId(user);
 		cart.setProduct(product);
 		if(dto.getQuantity()==0)
 		{
@@ -112,9 +110,9 @@ AdderessService addService;
 		double totalCost = cartdto.getTotalCost();
 		//log.info("totalCost...................................................." + totalCost);
 		
-		List<Address> add=addService.findAddressByUserId(user);
+		//List<Address> add=addService.findAddressByUserId(user);
 		
-		model.addAttribute("add", add);
+	//	model.addAttribute("add", add);
 
 		model.addAttribute("cartItems", cartItems);
 		model.addAttribute("totalCost", totalCost);

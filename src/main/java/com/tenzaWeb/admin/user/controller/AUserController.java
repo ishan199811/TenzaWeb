@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tenzaWeb.user.model.Role;
-import com.tenzaWeb.user.model.User;
-import com.tenzaWeb.user.service.UserService;
+import com.tenzaWeb.security.model.entity.Role;
+import com.tenzaWeb.security.model.entity.User;
+import com.tenzaWeb.security.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 

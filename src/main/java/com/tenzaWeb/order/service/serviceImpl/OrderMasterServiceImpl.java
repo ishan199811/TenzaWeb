@@ -12,9 +12,7 @@ import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
-import com.tenzaWeb.address.model.entity.Address;
-import com.tenzaWeb.address.repository.AddressRepository;
-import com.tenzaWeb.address.service.AdderessService;
+
 import com.tenzaWeb.cart.model.request.CartDTO;
 import com.tenzaWeb.cart.model.request.CartItemDto;
 import com.tenzaWeb.cart.service.CartService;
@@ -25,9 +23,9 @@ import com.tenzaWeb.order.model.entity.OrderMaster;
 import com.tenzaWeb.order.repository.OrderItemsRepository;
 import com.tenzaWeb.order.repository.OrderMasterRepository;
 import com.tenzaWeb.order.service.OrderMasterService;
-import com.tenzaWeb.user.model.User;
-import com.tenzaWeb.user.service.SecurityService;
-import com.tenzaWeb.user.service.UserService;
+import com.tenzaWeb.security.model.entity.User;
+import com.tenzaWeb.security.service.SecurityService;
+import com.tenzaWeb.security.service.UserService;
 
 
 
@@ -35,8 +33,8 @@ import com.tenzaWeb.user.service.UserService;
 
 @Service
 public class OrderMasterServiceImpl implements OrderMasterService {
-	@Autowired
-	AddressRepository addressRepo;
+//	@Autowired
+//	AddressRepository addressRepo;
 
 	
 	@Autowired 
@@ -112,55 +110,55 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 	        return Session.create(params);
 	    }
 
-	    public long placeOrder(String userId,Address address) {
-	        // first let get cart items for the user
-	    	
-			
-	    	String userId1 = securityService.findLoggedInUsername();
-	    	User user=userService.findByUserId( userId1);
-	    	address.setUserId(user);			
-	    	addressRepo.save(address);
-			
-	    	
-	    	address.setUserId(user);
-           
-	    	
-	    	CartDTO cartDto = cartService.listCartItems(user);
+//	    public long placeOrder(String userId,Address address) {
+//	        // first let get cart items for the user
+//	    	
+//			
+//	    	String userId1 = securityService.findLoggedInUsername();
+//	    	User user=userService.findByUserId( userId1);
+//	    	address.setUserId(user);			
+//	    	addressRepo.save(address);
+//			
+//	    	
+//	    	address.setUserId(user);
+//           
+//	    	
+//	    	CartDTO cartDto = cartService.listCartItems(user);
+//
+//	    	
+//	        List<CartItemDto> cartItemDtoList = cartDto.getCartItems();
+//
+//	        // create the order and save it
+//	        OrderMaster newOrder = new OrderMaster();
+//	        newOrder.setCreatedDate(new Date());
+//	        newOrder.setAddressId(address);
+//	        newOrder.setUser(user);
+//	        newOrder.setTotalPrice(cartDto.getTotalCost());
+//	        orderRepository.save(newOrder);
+//	        
+//	        for (CartItemDto cartItemDto : cartItemDtoList) {
+//	            // create orderItem and save each one
+//	            OrderItems orderItem = new OrderItems();
+//	            orderItem.setCreatedDate(new Date());
+//	            orderItem.setPrice(cartItemDto.getProduct().getProductPrice());
+//	            orderItem.setProduct(cartItemDto.getProduct());
+//	            orderItem.setQuantity(cartItemDto.getProductQuatity());
+//	            orderItem.setOrder(newOrder);
+//	            // add to order item list
+//	            orderItemsRepository.save(orderItem);
+//	        }
+//	        //
+//	         cartService.deleteUserCartItems(user);
+//	         return  newOrder.getOrderId();
+//
+//	    }
 
-	    	
-	        List<CartItemDto> cartItemDtoList = cartDto.getCartItems();
-
-	        // create the order and save it
-	        OrderMaster newOrder = new OrderMaster();
-	        newOrder.setCreatedDate(new Date());
-	        newOrder.setAddressId(address);
-	        newOrder.setUser(user);
-	        newOrder.setTotalPrice(cartDto.getTotalCost());
-	        orderRepository.save(newOrder);
-	        
-	        for (CartItemDto cartItemDto : cartItemDtoList) {
-	            // create orderItem and save each one
-	            OrderItems orderItem = new OrderItems();
-	            orderItem.setCreatedDate(new Date());
-	            orderItem.setPrice(cartItemDto.getProduct().getProductPrice());
-	            orderItem.setProduct(cartItemDto.getProduct());
-	            orderItem.setQuantity(cartItemDto.getProductQuatity());
-	            orderItem.setOrder(newOrder);
-	            // add to order item list
-	            orderItemsRepository.save(orderItem);
-	        }
-	        //
-	         cartService.deleteUserCartItems(user);
-	         return  newOrder.getOrderId();
-
-	    }
-
-	    public List<OrderMaster> getOrderByUserId(User userId) {
+	    public List<OrderMaster> getOrderByUserId1(User userId) {
 	        return orderRepository.findAllByUserOrderByCreatedDateDesc(userId);
 	    }
 	    
 	    @Override
-	    public List<OrderMaster> getByUser(User user) {
+	    public List<OrderMaster> getByUser1(User user) {
 	        return orderRepository.findAllByUser(user);
 	    }
 
@@ -188,6 +186,18 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 		public List<OrderItems> getAllOrdersItems(OrderMaster order) {
 			// TODO Auto-generated method stub
 			return orderItemsRepository.getByOrder(order);
+		}
+
+		@Override
+		public List<OrderMaster> getOrderByUserId(User userId) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<OrderMaster> getByUser(User user) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 		

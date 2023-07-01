@@ -32,9 +32,9 @@ import com.tenzaWeb.product.model.entity.Product;
 import com.tenzaWeb.product.service.BrandService;
 import com.tenzaWeb.product.service.CatagoryService;
 import com.tenzaWeb.product.service.ProductService;
-import com.tenzaWeb.user.model.User;
-import com.tenzaWeb.user.service.SecurityService;
-import com.tenzaWeb.user.service.UserService;
+import com.tenzaWeb.security.model.entity.User;
+import com.tenzaWeb.security.service.SecurityService;
+import com.tenzaWeb.security.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -2,7 +2,8 @@ package com.tenzaWeb.cart.service;
 
 import com.tenzaWeb.cart.model.CartMaster;
 import com.tenzaWeb.cart.model.request.CartDTO;
-import com.tenzaWeb.user.model.User;
+import com.tenzaWeb.security.model.entity.User;
+
 
 public interface CartService {
 	
@@ -23,6 +24,10 @@ public interface CartService {
 	 public void deletebyCartItem(long cartId);
 
 	public String deleteUserCartItems(User user);
+
+	CartDTO listCartItems1(User userId);
+
+	String deleteUserCartItems1(User user);
 
 
 
